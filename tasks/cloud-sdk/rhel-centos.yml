@@ -1,0 +1,30 @@
+---
+- name: Install APT keys and repository
+  block:
+    - name: "(CentOS/RHEL) Install prerequisites"
+      yum:
+        name: "{{ cloudsdk.centos.requirements }}"
+        state: present
+
+    - name: "(CentOS/RHEL) Add cloud-sdk YUM repository"
+      yum_repository:
+        name: google-cloud-sdk
+        description: Google Cloud SDK
+        baseurl: "{{ cloudsdk.centos.url }}"
+        enabled: true
+        repo_gpgcheck: true
+        gpgcheck: true
+        gpgkey: "{{ cloudsdk.centos.key }}"
+  when:
+    - gcloud == "present"
+      or kubectl == "present"
+
+- name: "(CentOS/RHEL) Install gcloud"
+  yum:
+    name: google-cloud-sdk
+    state: "{{ gcloud }}"
+
+- name: "(CentOS/RHEL) Install kubectl"
+  yum:
+    name: kubectl
+    state: "{{ kubectl }}"

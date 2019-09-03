@@ -1,2 +1,34 @@
 ---
-# defaults file for workspace-installer-ansible-role
+# Install gcloud
+# [present | absent]
+gcloud: present
+
+# Install kubectl
+# [present | absent]
+kubectl: present
+
+# Enable kubectl bash completion
+# [true | false]
+kubectl_bash_completion: true
+
+cloudsdk:
+  debian:
+    url: >-
+      deb [signed-by=/usr/share/keyrings/cloud.google.gpg]
+      http://packages.cloud.google.com/apt cloud-sdk main
+    key: 'https://packages.cloud.google.com/apt/doc/apt-key.gpg'
+    keyring: '/usr/share/keyrings/cloud.google.gpg'
+    requirements:
+      - ca-certificates
+      - apt-transport-https
+      - bash-completion
+      - curl
+      - software-properties-common
+      - gnupg2
+  centos:
+    url: 'https://packages.cloud.google.com/yum/repos/cloud-sdk-el7-x86_64'
+    key:
+      - https://packages.cloud.google.com/yum/doc/yum-key.gpg
+      - https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+    requirements:
+      - bash-completion
