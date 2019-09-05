@@ -8,6 +8,16 @@ lint:
 platforms:
   - name: fedora
     image: fedora:30
+  - name: centos-7
+    image: centos:7
+  - name: debian-stretch
+    image: debian:stretch
+  - name: debian-buster
+    image: debian:buster
+  - name: ubuntu-xenial
+    image: ubuntu:xenial
+  - name: ubuntu-bionic
+    image: ubuntu:bionic
 provisioner:
   name: ansible
   lint:
