@@ -8,6 +8,8 @@ lint:
 platforms:
   - name: fedora
     image: fedora:30
+  - name: centos-7
+    image: centos:7
 provisioner:
   name: ansible
   lint:
