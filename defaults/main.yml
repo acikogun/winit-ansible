@@ -1,23 +1,20 @@
 ---
-# Install gcloud
-# [present | absent]
-gcloud: present
-
-# Install kubectl
-# [present | absent]
-kubectl: present
-
-# Enable kubectl bash completion
+# Install cloudsdk
 # [true | false]
-kubectl_bash_completion: true
+cloudsdk_enabled: true
 
+# Install docker-ce
+# [true | false]
+docker_enabled: true
+
+# Cloudsdk settings
 cloudsdk:
   debian:
-    url: >-
+    repo_url: >-
       deb [signed-by=/usr/share/keyrings/cloud.google.gpg]
       http://packages.cloud.google.com/apt cloud-sdk main
-    key: 'https://packages.cloud.google.com/apt/doc/apt-key.gpg'
-    keyring: '/usr/share/keyrings/cloud.google.gpg'
+    repo_key: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    keyring: /usr/share/keyrings/cloud.google.gpg
     requirements:
       - ca-certificates
       - apt-transport-https
@@ -25,10 +22,92 @@ cloudsdk:
       - curl
       - software-properties-common
       - gnupg2
+    install_list:
+      - google-cloud-sdk
+      - kubectl
   centos:
-    url: 'https://packages.cloud.google.com/yum/repos/cloud-sdk-el7-x86_64'
-    key:
+    repo_url: https://packages.cloud.google.com/yum/repos/cloud-sdk-el7-x86_64
+    repo_key:
       - https://packages.cloud.google.com/yum/doc/yum-key.gpg
       - https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
     requirements:
       - bash-completion
+    install_list:
+      - google-cloud-sdk
+      - kubectl
+
+# Docker settings
+docker:
+  debian:
+    repo_url: >-
+      deb [arch=amd64] https://download.docker.com/linux/debian
+      "{{ codename }}" stable
+    repo_key: https://download.docker.com/linux/debian/gpg
+    requirements:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+      - gnupg2
+    install_list:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    remove_list:
+      - docker
+      - docker-engine
+      - docker.io
+      - containerd
+      - runc
+  ubuntu:
+    repo_url: >-
+      deb [arch=amd64] https://download.docker.com/linux/ubuntu
+      "{{ codename }}" stable
+    repo_key: https://download.docker.com/linux/ubuntu/gpg
+    requirements:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg-agent
+      - software-properties-common
+    install_list:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    remove_list:
+      - docker
+      - docker-engine
+      - docker.io
+      - containerd runc
+  centos:
+    repo_url: https://download.docker.com/linux/centos/docker-ce.repo
+    requirements:
+      - yum-utils
+      - device-mapper-persistent-data
+      - lvm2
+    install_list:
+      - docker-ce
+    remove_list:
+      - docker
+      - docker-common
+      - docker-selinux
+      - docker-engine
+  fedora:
+    repo_url: https://download.docker.com/linux/fedora/docker-ce.repo
+    requirements:
+      - dnf-plugins-core
+    install_list:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    remove_list:
+     - docker
+     - docker-client
+     - docker-client-latest
+     - docker-common
+     - docker-latest
+     - docker-latest-logrotate
+     - docker-logrotate
+     - docker-selinux
+     - docker-engine-selinux
+     - docker-engine
