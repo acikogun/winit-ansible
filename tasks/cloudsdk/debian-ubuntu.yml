@@ -1,0 +1,25 @@
+---
+- name: Install APT keys and repository
+  block:
+    - name: "(Debian/Ubuntu) Install prerequisites"
+      apt:
+        name: "{{ cloudsdk.debian.requirements }}"
+        update_cache: true
+        state: present
+
+    - name: "(Debian/Ubuntu) Add cloud-sdk APT Signing Key"
+      apt_key:
+        url: "{{ cloudsdk.debian.repo_key }}"
+        keyring: "{{ cloudsdk.debian.keyring }}"
+
+    - name: "(Debian/Ubuntu) Add cloud-sdk APT repository"
+      apt_repository:
+        repo: "{{ cloudsdk.debian.repo_url }}"
+
+    - name: "(Debian/Ubuntu) Install google-cloud-sdk and kubectl"
+      apt:
+        name: "{{ cloudsdk.debian.install_list }}"
+        update_cache: true
+        state: present
+  when:
+    - cloudsdk_enabled | bool
