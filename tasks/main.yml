@@ -1,12 +1,10 @@
 ---
-- import_tasks: cloud-sdk/debian-ubuntu.yml
+- import_tasks: cloudsdk/debian-ubuntu.yml
   when:
     - ansible_os_family == "Debian"
 
-- import_tasks: cloud-sdk/rhel-centos.yml
+- import_tasks: cloudsdk/rhel-centos.yml
   when:
     - ansible_os_family == "RedHat"
 
-- import_tasks: cloud-sdk/common.yml
-  when:
-    - kubectl_bash_completion | bool
+- import_tasks: cloudsdk/common.yml
