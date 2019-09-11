@@ -1,0 +1,8 @@
+---
+# Install cloudsdk
+# [true | false]
+cloudsdk_enabled: false
+
+# Install docker-ce
+# [true | false]
+docker_enabled: true

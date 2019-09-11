@@ -1,42 +1,6 @@
 ---
-# Install cloudsdk
-# [true | false]
-cloudsdk_enabled: true
+# Default docker settings
 
-# Install docker-ce
-# [true | false]
-docker_enabled: true
-
-# Cloudsdk settings
-cloudsdk:
-  debian:
-    repo_url: >-
-      deb [signed-by=/usr/share/keyrings/cloud.google.gpg]
-      http://packages.cloud.google.com/apt cloud-sdk main
-    repo_key: https://packages.cloud.google.com/apt/doc/apt-key.gpg
-    keyring: /usr/share/keyrings/cloud.google.gpg
-    requirements:
-      - ca-certificates
-      - apt-transport-https
-      - bash-completion
-      - curl
-      - software-properties-common
-      - gnupg2
-    install_list:
-      - google-cloud-sdk
-      - kubectl
-  centos:
-    repo_url: https://packages.cloud.google.com/yum/repos/cloud-sdk-el7-x86_64
-    repo_key:
-      - https://packages.cloud.google.com/yum/doc/yum-key.gpg
-      - https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-    requirements:
-      - bash-completion
-    install_list:
-      - google-cloud-sdk
-      - kubectl
-
-# Docker settings
 docker:
   debian:
     repo_url: >-
