@@ -3,4 +3,4 @@
   systemd:
     name: docker.service
     state: started
-    enabled: True
+    enabled: true
