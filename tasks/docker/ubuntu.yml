@@ -1,0 +1,24 @@
+---
+- name: (Ubuntu) Install docker apt keys and repository
+  block:
+    - name: "(Ubuntu) Install docker prerequisites"
+      apt:
+        name: "{{ docker.ubuntu.requirements }}"
+        update_cache: true
+        state: present
+
+    - name: "(Ubuntu) Add docker apt key"
+      apt_key:
+        url: "{{ docker.ubuntu.repo_key }}"
+
+    - name: "(Ubuntu) Add docker apt repository"
+      apt_repository:
+        repo: "{{ docker.ubuntu.repo_url }}"
+
+    - name: "(Ubuntu) Install docker-ce"
+      apt:
+        name: "{{ docker.ubuntu.install_list }}"
+        update_cache: true
+        state: present
+  when:
+    - docker_enabled | bool

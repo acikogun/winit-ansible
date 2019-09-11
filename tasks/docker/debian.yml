@@ -1,0 +1,24 @@
+---
+- name: (Debian) Install docker
+  block:
+    - name: (Debian) Install docker prerequisites
+      apt:
+        name: "{{ docker.debian.requirements }}"
+        update_cache: true
+        state: present
+
+    - name: (Debian) Add docker apt key
+      apt_key:
+        url: "{{ docker.debian.repo_key }}"
+
+    - name: (Debian) Add docker apt repository
+      apt_repository:
+        repo: "{{ docker.debian.repo_url }}"
+
+    - name: (Debian) Install docker-ce
+      apt:
+        name: "{{ docker.debian.install_list }}"
+        update_cache: true
+        state: present
+  when:
+    - docker_enabled | bool

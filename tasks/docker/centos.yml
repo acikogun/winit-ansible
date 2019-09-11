@@ -1,0 +1,21 @@
+---
+- name: (CentOS) Install docker
+  block:
+    - name: (CentOS) Install docker prerequisites
+      yum:
+        name: "{{ docker.centos.requirements }}"
+        state: present
+
+    - name: (CentOS) Add docker yum repository
+      get_url:
+        url: "{{ docker.centos.repo_url }}"
+        dest: "{{ docker.centos.repo_dest }}"
+
+    - name: (CentOS) Install docker-ce
+      yum:
+        name: "{{ docker.centos.install_list }}"
+        state: present
+      notify: enable and start docker
+
+  when:
+    - docker_enabled | bool
