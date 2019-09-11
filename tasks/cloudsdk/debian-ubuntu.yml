@@ -1,22 +1,22 @@
 ---
 - name: (Debian/Ubuntu) Install cloudsdk
   block:
-    - name: "(Debian/Ubuntu) Install cloudsdk prerequisites"
+    - name: (Debian/Ubuntu) Install cloudsdk prerequisites
       apt:
         name: "{{ cloudsdk.debian.requirements }}"
         update_cache: true
         state: present
 
-    - name: "(Debian/Ubuntu) Add cloudsdk apt signing Key"
+    - name: (Debian/Ubuntu) Add cloudsdk apt key
       apt_key:
         url: "{{ cloudsdk.debian.repo_key }}"
         keyring: "{{ cloudsdk.debian.keyring }}"
 
-    - name: "(Debian/Ubuntu) Add cloudsdk apt repository"
+    - name: (Debian/Ubuntu) Add cloudsdk apt repository
       apt_repository:
         repo: "{{ cloudsdk.debian.repo_url }}"
 
-    - name: "(Debian/Ubuntu) Install google-cloud-sdk and kubectl"
+    - name: (Debian/Ubuntu) Install google-cloud-sdk and kubectl
       apt:
         name: "{{ cloudsdk.debian.install_list }}"
         update_cache: true

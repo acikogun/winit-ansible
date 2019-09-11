@@ -78,10 +78,8 @@ docker:
       - docker-ce
   fedora:
     repo_url: https://download.docker.com/linux/fedora/docker-ce.repo
-    requirements:
-      - dnf-plugins-core
+    repo_dest: /etc/yum.repos.d/docker-ce.repo
     install_list:
       - docker-ce
       - docker-ce-cli
       - containerd.io
-
