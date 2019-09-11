@@ -6,8 +6,6 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: fedora
-    image: fedora:30
   - name: centos-7
     image: centos/systemd
     privileged: true
