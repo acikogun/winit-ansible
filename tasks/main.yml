@@ -1,10 +1,29 @@
 ---
+
+# cloudsdk
 - import_tasks: cloudsdk/debian-ubuntu.yml
   when:
-    - ansible_os_family == "Debian"
+    - ansible_os_family | lower == "debian"
 
 - import_tasks: cloudsdk/rhel-centos.yml
   when:
-    - ansible_os_family == "RedHat"
+    - ansible_os_family | lower == "redhat"
 
 - import_tasks: cloudsdk/common.yml
+
+# docker
+- import_tasks: docker/debian.yml
+  when:
+    - ansible_distribution | lower == "debian"
+
+- import_tasks: docker/ubuntu.yml
+  when:
+    - ansible_distribution | lower == "ubuntu"
+
+- import_tasks: docker/centos.yml
+  when:
+    - ansible_distribution | lower == "centos"
+
+- import_tasks: docker/fedora.yml
+  when:
+    - ansible_distribution | lower == "fedora"
