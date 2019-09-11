@@ -1,8 +1,0 @@
----
-- name: Enable kubectl bash completion
-  lineinfile:
-    create: true
-    line: "source <(kubectl completion bash)"
-    dest: "/etc/profile.d/kubectl_completion.sh"
-  when:
-    - kubectl == "present"
