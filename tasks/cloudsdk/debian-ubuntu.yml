@@ -1,18 +1,18 @@
 ---
-- name: Install APT keys and repository
+- name: (Debian/Ubuntu) Install cloudsdk
   block:
-    - name: "(Debian/Ubuntu) Install prerequisites"
+    - name: "(Debian/Ubuntu) Install cloudsdk prerequisites"
       apt:
         name: "{{ cloudsdk.debian.requirements }}"
         update_cache: true
         state: present
 
-    - name: "(Debian/Ubuntu) Add cloud-sdk APT Signing Key"
+    - name: "(Debian/Ubuntu) Add cloudsdk apt signing Key"
       apt_key:
         url: "{{ cloudsdk.debian.repo_key }}"
         keyring: "{{ cloudsdk.debian.keyring }}"
 
-    - name: "(Debian/Ubuntu) Add cloud-sdk APT repository"
+    - name: "(Debian/Ubuntu) Add cloudsdk apt repository"
       apt_repository:
         repo: "{{ cloudsdk.debian.repo_url }}"
 
