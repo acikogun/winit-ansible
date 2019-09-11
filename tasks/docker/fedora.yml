@@ -1,11 +1,6 @@
 ---
 - name: (Fedora) Install docker
   block:
-    - name: (Fedora) Install docker prerequisites
-      yum:
-        name: "{{ docker.fedora.requirements }}"
-        state: present
-
     - name: (Fedora) Add docker yum repository
       get_url:
         url: "{{ docker.fedora.repo_url }}"
