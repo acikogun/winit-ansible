@@ -6,6 +6,11 @@
         url: "{{ docker.fedora.repo_url }}"
         dest: "{{ docker.fedora.repo_dest }}"
 
+    - name: (Fedora) Install docker prerequisites
+      yum:
+        name: "{{ docker.fedora.requirements }}"
+        state: present
+
     - name: (Fedora) Install docker-ce
       dnf:
         name: "{{ docker.fedora.install_list }}"
