@@ -9,7 +9,7 @@ platforms:
   - name: fedora
     image: fedora:30
   - name: centos-7
-    image: centos:7
+    image: centos:systemd
   - name: debian-stretch
     image: debian:stretch
   - name: debian-buster
