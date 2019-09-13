@@ -1,0 +1,27 @@
+---
+# Default python3 settings
+
+python:
+  pip:
+    bash_completion_dest: /etc/profile.d/pip_bash.sh
+  debian:
+    requirements:
+      - bash-completion
+    install_list:
+      - python3
+      - python3-pip
+      - python-pkg-resources
+  centos:
+    requirements:
+      - epel-release
+      - python-setuptools
+      - bash-completion
+    install_list:
+      - python36
+      - python36-pip
+  fedora:
+    requirements:
+      - bash-completion
+    install_list:
+      - python3
+      - python3-pip

@@ -1,0 +1,14 @@
+---
+- name: (Fedora) Install python3 suite
+  block:
+    - name: (Fedora) Install python3 prerequisites
+      yum:
+        name: "{{ python.fedora.requirements }}"
+        state: present
+
+    - name: (Fedora) Install python3 and pip
+      yum:
+        name: "{{ python.fedora.install_list }}"
+        state: present
+  when:
+    - python3_enabled | bool

@@ -1,0 +1,16 @@
+---
+- name: (Debian/Ubuntu) Install python3 suite
+  block:
+    - name: (Debian/Ubuntu) Install python3 prerequisites
+      apt:
+        name: "{{ python.debian.requirements }}"
+        update_cache: true
+        state: present
+
+    - name: (Debian/Ubuntu) Install python3 and pip
+      apt:
+        name: "{{ python.debian.install_list }}"
+        update_cache: true
+        state: present
+  when:
+    - python3_enabled | bool

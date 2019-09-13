@@ -1,0 +1,14 @@
+---
+- name: (Centos) Install python3 suite
+  block:
+    - name: (CentOS) Install python3 prerequisites
+      yum:
+        name: "{{ python.centos.requirements }}"
+        state: present
+
+    - name: (Centos) Install python3 and pip
+      yum:
+        name: "{{ python.centos.install_list }}"
+        state: present
+  when:
+    - python3_enabled | bool
