@@ -1,0 +1,28 @@
+---
+- name: Install Go
+  block:
+    - name: Get the latest stable version of Go
+      uri:
+        url: https://golang.org/VERSION?m=text
+        return_content: true
+      register: go_version
+
+    - name: Download Go
+      get_url:
+        url: '{{ go.common.src }}'
+        dest: '{{ go.common.dest }}'
+
+    - name: Install Go
+      unarchive:
+        src: '{{ go.common.dest }}'
+        dest: '{{ go.common.install_dest }}'
+
+    - name: Create a symbolic links for Go binaries
+      file:
+        src: '{{ item.src }}'
+        dest: '{{ item.dest }}'
+        state: link
+        force: true
+      with_items: '{{ go.common.symlinks }}'
+  when:
+    - go_enabled | bool
