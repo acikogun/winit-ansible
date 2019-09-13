@@ -1,5 +1,23 @@
 ---
 
+# python3 and pip
+- import_tasks: python/debian-ubuntu.yml
+  when:
+    - ansible_os_family | lower == "debian"
+
+- import_tasks: python/centos.yml
+  when:
+    - ansible_distribution | lower == "centos"
+
+- import_tasks: python/fedora.yml
+  when:
+    - ansible_distribution | lower == "fedora"
+
+- import_tasks: python/common.yml
+
+# go
+- import_tasks: go/common.yml
+
 # cloudsdk
 - import_tasks: cloudsdk/debian-ubuntu.yml
   when:

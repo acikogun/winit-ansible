@@ -5,4 +5,12 @@ cloudsdk_enabled: false
 
 # Install docker-ce
 # [true | false]
-docker_enabled: true
+docker_enabled: false
+
+# Install python3 suite (python3, pip)
+# [true | false]
+python3_enabled: false
+
+# Install Go
+# [true | false]
+go_enabled: true
