@@ -2,10 +2,9 @@
 # Default go settings
 
 go:
-  common:
-    install_dest: /usr/local
-    src: 'https://dl.google.com/go/{{ go_version.content }}.linux-amd64.tar.gz'
-    dest: "/tmp/{{ go_version.content }}.linux-amd64.tar.gz"
-    symlinks:
-      - {src: /usr/local/go/bin/go, dest: /usr/local/bin/go}
-      - {src: /usr/local/go/bin/gofmt, dest: /usr/local/bin/gofmt}
+  install: /usr/local
+  src: https://dl.google.com/go/{{ go_version.content }}.linux-amd64.tar.gz
+  dest: /tmp/{{ go_version.content }}.linux-amd64.tar.gz
+  symlinks:
+    - {src: /usr/local/go/bin/go, dest: /usr/local/bin/go}
+    - {src: /usr/local/go/bin/gofmt, dest: /usr/local/bin/gofmt}

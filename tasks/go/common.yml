@@ -9,13 +9,14 @@
 
     - name: Download Go
       get_url:
-        url: '{{ go.common.src }}'
-        dest: '{{ go.common.dest }}'
+        url: '{{ go.src }}'
+        dest: '{{ go.dest }}'
 
     - name: Install Go
       unarchive:
-        src: '{{ go.common.dest }}'
-        dest: '{{ go.common.install_dest }}'
+        src: '{{ go.dest }}'
+        dest: '{{ go.install }}'
+        copy: false
 
     - name: Create a symbolic links for Go binaries
       file:
@@ -23,6 +24,7 @@
         dest: '{{ item.dest }}'
         state: link
         force: true
-      with_items: '{{ go.common.symlinks }}'
+      with_items: '{{ go.symlinks }}'
+
   when:
     - go_enabled | bool
