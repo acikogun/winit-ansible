@@ -1,16 +1,44 @@
-[![Build Status](https://travis-ci.com/acikogun/ws-init-ansible-role.svg?branch=master)](https://travis-ci.com/acikogun/ws-init-ansible-role)
+[![Build Status](https://travis-ci.com/acikogun/wsprov-ansible-role.svg?branch=master)](https://travis-ci.com/acikogun/wsprov-ansible-role)
 
-Role Name
+wsprov-ansible-role
 =========
+Ansible role for [wsprov](https://github.com/acikogun/wsprov) that is a collection of installer bash scripts for tools I use on my development workstation.
 
-A brief description of the role goes here.
+Available tools
+------------
+go, docker, ansible, cloudsdk, awscli, IPython, git
+
+Notes: 
+- Python3 and pip installed automatically.
+- kubectl installed as a dependency to cloudsdk.
+
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should
-be mentioned here. For instance, if the role uses the EC2 module, it may be a
-good idea to mention in this section that the boto package is required.
+This role was developed using Ansible 2.8.4. Backwards compatibility is not guaranteed.
+
+
+Supported platforms
+------------
+Note: Only linux/amd64 is supported.
+
+```yaml
+CentOS:
+  versions:
+    - 7
+Debian:
+  versions:
+    - stretch
+    - buster
+Ubuntu:
+  versions:
+    - xenial
+    - bionic
+Fedora:
+  versions:
+    - 30
+```
 
 Role Variables
 --------------
