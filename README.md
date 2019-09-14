@@ -38,10 +38,6 @@ passed in as parameters) is always nice for users too:
       roles:
          - { role: workspace-installer-ansible-role, x: 42 }
 
-License
--------
-
-BSD
 
 Author Information
 ------------------
