@@ -1,15 +1,15 @@
 ---
 # Install cloudsdk
 # [true | false]
-cloudsdk_enabled: false
+cloudsdk_enabled: true
 
 # Install docker-ce
 # [true | false]
-docker_enabled: false
+docker_enabled: true
 
 # Install python3 suite (python3, pip)
 # [true | false]
-python3_enabled: false
+python3_enabled: true
 
 # Install Go
 # [true | false]
