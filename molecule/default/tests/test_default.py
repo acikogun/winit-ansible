@@ -18,15 +18,15 @@ def test_docker_is_installed(host):
     assert docker.is_installed
 
 
+def test_docker_running_and_enabled(host):
+    docker_service = host.service("docker")
+    assert docker_service.is_running
+    assert docker_service.is_enabled
+
+
 def test_git_is_installed(host):
     git = host.package("git")
     assert git.is_installed
-
-
-def test_docker_running_and_enabled(host):
-    docker = host.service("docker")
-    assert docker.is_running
-    assert docker.is_enabled
 
 
 def test_go_is_installed(host):
@@ -61,5 +61,5 @@ def test_ipython_is_installed(host):
 
 def test_bash_completion_files(host):
     assert host.file('/etc/profile.d/kubectl_bash_completion.sh').exists
-    assert host.file('/etc/profile.d/pip_bash_completion.sh.sh').exists
+    assert host.file('/etc/profile.d/pip_bash_completion.sh').exists
     assert host.file('/etc/profile.d/awscli_bash_completion.sh').exists
