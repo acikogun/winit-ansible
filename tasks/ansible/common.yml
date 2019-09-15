@@ -1,0 +1,11 @@
+---
+- name: Install ansible
+  block:
+    - name: Install ansible
+      pip:
+        name: ansible
+        executable: pip3
+        extra_args: --upgrade
+
+  when:
+    - ansible_enabled | bool

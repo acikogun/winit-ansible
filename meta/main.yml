@@ -29,9 +29,11 @@ galaxy_info:
     - docker
     - awscli
     - cloudsdk
-    - python
-    - pip
+    - python3
+    - ipython
     - golang
+    - ansible
+    - git
     - workspace
     - development
 

@@ -12,3 +12,6 @@
       changed_when: false
   when:
     - python3_enabled | bool
+      or awscli_enabled | bool
+      or ansible_enabled | bool
+      or ipython_enabled | bool

@@ -1,0 +1,16 @@
+---
+- name: Install awscli
+  block:
+    - name: Install awscli
+      pip:
+        name: awscli
+        executable: pip3
+        extra_args: --upgrade
+
+    - name: Enable awscli bash completion
+      lineinfile:
+        create: true
+        line: "complete -C 'aws_completer' aws"
+        dest: "/etc/profile.d/awscli_bash_completion.sh"
+  when:
+    - awscli_enabled | bool

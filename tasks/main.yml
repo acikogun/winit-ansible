@@ -15,6 +15,18 @@
 
 - import_tasks: python/common.yml
 
+# awscli
+- import_tasks: awscli/common.yml
+
+# ansible
+- import_tasks: ansible/common.yml
+
+# ipython
+- import_tasks: ipython/common.yml
+
+# git
+- import_tasks: git/common.yml
+
 # go
 - import_tasks: go/common.yml
 

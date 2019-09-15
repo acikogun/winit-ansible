@@ -1,0 +1,10 @@
+---
+- name: Install Git
+  block:
+    - name: Install Git
+      package:
+        name: git
+        state: present
+
+  when:
+    - git_enabled | bool

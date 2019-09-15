@@ -14,3 +14,19 @@ python3_enabled: true
 # Install Go
 # [true | false]
 go_enabled: true
+
+# Install git
+# [true | false]
+git_enabled: true
+
+# Install awscli
+# [true | false]
+awscli_enabled: true
+
+# Install IPython
+# [true | false]
+ipython_enabled: true
+
+# Install ansible
+# [true | false]
+ansible_enabled: true
