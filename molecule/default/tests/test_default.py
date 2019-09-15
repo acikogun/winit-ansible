@@ -13,17 +13,6 @@ def test_python3_is_installed(host):
     assert 'Python' in cmd.stdout
 
 
-def test_docker_is_installed(host):
-    docker = host.package("docker-ce")
-    assert docker.is_installed
-
-
-def test_docker_running_and_enabled(host):
-    docker_service = host.service("docker")
-    assert docker_service.is_running
-    assert docker_service.is_enabled
-
-
 def test_git_is_installed(host):
     git = host.package("git")
     assert git.is_installed
