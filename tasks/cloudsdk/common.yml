@@ -3,6 +3,6 @@
   lineinfile:
     create: true
     line: "source <(kubectl completion bash)"
-    dest: "/etc/profile.d/kubectl_completion.sh"
+    dest: "/etc/profile.d/kubectl_bash_completion.sh"
   when:
     - cloudsdk_enabled | bool

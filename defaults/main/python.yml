@@ -3,7 +3,7 @@
 
 python:
   pip:
-    bash_completion_dest: /etc/profile.d/pip_bash.sh
+    bash_completion_dest: /etc/profile.d/pip_bash_completion.sh
   debian:
     requirements:
       - bash-completion
