@@ -4,18 +4,25 @@ wsprov-ansible-role
 =========
 Ansible role for [wsprov](https://github.com/acikogun/wsprov) that is a collection of installer bash scripts for tools I use on my development workstation.
 
+
+  - [Available tools](#available-tools)
+  - [Requirements](#requirements)
+  - [Supported platforms](#supported-platforms)
+  - [Install](#install)
+  - [Example Playbook](#example-playbook)
+  - [Role Variables](#role-variables)
+
 Available tools
 ------------
 go, docker, ansible, cloudsdk, awscli, IPython, git
 
-Notes: 
+Notes:
 - Python3 and pip installed automatically.
 - kubectl installed as a dependency to cloudsdk.
 
 
 Requirements
 ------------
-
 This role was developed using Ansible 2.8.4. Backwards compatibility is not guaranteed.
 
 
@@ -40,35 +47,56 @@ Fedora:
     - 30
 ```
 
+Install
+--------------
+```
+ansible-galaxy install acikogun.wsprov_ansible_role
+```
+
+Example Playbook
+--------------
+```
+---
+- hosts: minimal
+  roles:
+    - acikogun.wsprov_ansible_role
+
+```
+
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including
-any variables that are in defaults/main.yml, vars/main.yml, and any variables
-that can/should be set via parameters to the role. Any variables that are read
-from other roles and/or the global scope (ie. hostvars, group vars, etc.) should
-be mentioned here as well.
+```
+# Install cloudsdk
+# [true | false]
+cloudsdk_enabled: true
 
-Dependencies
-------------
+# Install docker-ce
+# [true | false]
+docker_enabled: true
 
-A list of other roles hosted on Galaxy should go here, plus any details in
-regards to parameters that may need to be set for other roles, or variables that
-are used from other roles.
+# Install python3 suite (python3, pip)
+# [true | false]
+python3_enabled: true
 
-Example Playbook
-----------------
+# Install Go
+# [true | false]
+go_enabled: true
 
-Including an example of how to use your role (for instance, with variables
-passed in as parameters) is always nice for users too:
+# Install git
+# [true | false]
+git_enabled: true
 
-    - hosts: servers
-      roles:
-         - { role: workspace-installer-ansible-role, x: 42 }
+# Install awscli
+# [true | false]
+awscli_enabled: true
 
+# Install IPython
+# [true | false]
+ipython_enabled: true
 
-Author Information
-------------------
+# Install ansible
+# [true | false]
+ansible_enabled: true
+```
 
-An optional section for the role authors to include contact information, or a
-website (HTML is not allowed).
