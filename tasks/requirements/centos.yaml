@@ -1,0 +1,7 @@
+---
+- name: (Centos) Install requirements
+  block:
+    - name: (CentOS) Install requirements
+      yum:
+        name: "{{ requirements.yum }}"
+        state: present

@@ -1,0 +1,8 @@
+---
+- name: (Debian/Ubuntu) Install requirements
+  block:
+    - name: (Debian/Ubuntu) Install requirements
+      apt:
+        name: "{{ requirements.apt }}"
+        update_cache: true
+        state: present

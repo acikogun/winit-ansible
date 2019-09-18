@@ -1,15 +1,15 @@
 ---
 
-# python3 and pip
-- import_tasks: python/debian-ubuntu.yml
+# Import requirements
+- import_tasks: requirements/debian-ubuntu.yml
   when:
     - ansible_os_family | lower == "debian"
 
-- import_tasks: python/centos.yml
+- import_tasks: requirements/centos.yml
   when:
     - ansible_distribution | lower == "centos"
 
-- import_tasks: python/common.yml
+- import_tasks: requirements/common.yml
 
 # awscli
 - import_tasks: awscli/common.yml
@@ -19,9 +19,6 @@
 
 # ipython
 - import_tasks: ipython/common.yml
-
-# git
-- import_tasks: git/common.yml
 
 # go
 - import_tasks: go/common.yml
