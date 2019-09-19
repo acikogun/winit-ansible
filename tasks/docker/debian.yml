@@ -1,12 +1,6 @@
 ---
-- name: (Debian) Install docker
+- name: (Debian) Install docker-ce
   block:
-    - name: (Debian) Install docker prerequisites
-      apt:
-        name: "{{ docker.debian.requirements }}"
-        update_cache: true
-        state: present
-
     - name: (Debian) Add docker apt key
       apt_key:
         url: "{{ docker.debian.repo_key }}"

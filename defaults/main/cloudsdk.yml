@@ -8,13 +8,6 @@ cloudsdk:
       http://packages.cloud.google.com/apt cloud-sdk main
     repo_key: https://packages.cloud.google.com/apt/doc/apt-key.gpg
     keyring: /usr/share/keyrings/cloud.google.gpg
-    requirements:
-      - ca-certificates
-      - apt-transport-https
-      - bash-completion
-      - curl
-      - software-properties-common
-      - gnupg2
     install_list:
       - google-cloud-sdk
       - kubectl
@@ -23,8 +16,6 @@ cloudsdk:
     repo_key:
       - https://packages.cloud.google.com/yum/doc/yum-key.gpg
       - https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-    requirements:
-      - bash-completion
     install_list:
       - google-cloud-sdk
       - kubectl

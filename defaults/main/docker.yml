@@ -7,13 +7,6 @@ docker:
       deb [arch=amd64] https://download.docker.com/linux/debian
       "{{ ansible_distribution_release }}" stable
     repo_key: https://download.docker.com/linux/debian/gpg
-    requirements:
-      - apt-transport-https
-      - ca-certificates
-      - curl
-      - software-properties-common
-      - gnupg2
-      - bash-completion
     install_list:
       - docker-ce
       - docker-ce-cli
@@ -23,13 +16,6 @@ docker:
       deb [arch=amd64] https://download.docker.com/linux/ubuntu
       "{{ ansible_distribution_release }}" stable
     repo_key: https://download.docker.com/linux/ubuntu/gpg
-    requirements:
-      - apt-transport-https
-      - ca-certificates
-      - curl
-      - software-properties-common
-      - gnupg-agent
-      - bash-completion
     install_list:
       - docker-ce
       - docker-ce-cli

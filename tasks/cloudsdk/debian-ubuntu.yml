@@ -1,12 +1,6 @@
 ---
 - name: (Debian/Ubuntu) Install cloudsdk
   block:
-    - name: (Debian/Ubuntu) Install cloudsdk prerequisites
-      apt:
-        name: "{{ cloudsdk.debian.requirements }}"
-        update_cache: true
-        state: present
-
     - name: (Debian/Ubuntu) Add cloudsdk apt key
       apt_key:
         url: "{{ cloudsdk.debian.repo_key }}"
