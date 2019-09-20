@@ -7,7 +7,7 @@
 
 - import_tasks: requirements/centos.yml
   when:
-    - ansible_distribution | lower == "centos"
+    - ansible_os_family | lower == "redhat"
 
 - import_tasks: requirements/common.yml
 
