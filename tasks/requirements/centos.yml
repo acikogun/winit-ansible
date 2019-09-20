@@ -1,7 +1,8 @@
 ---
-- name: (Centos) Install requirements
+- name: (CentOS/RHEL) Install requirements
   block:
-    - name: (CentOS) Install requirements
+    - name: (CentOS/RHEL) Install requirements
       yum:
         name: "{{ requirements.yum }}"
         state: present
+        update_cache: yes
