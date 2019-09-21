@@ -12,4 +12,3 @@
         name: "{{ requirements.yum }}"
         state: present
         update_cache: true
-
