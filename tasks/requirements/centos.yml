@@ -1,8 +1,15 @@
 ---
 - name: (CentOS/RHEL) Install requirements
   block:
+    - name: (CentOS/RHEL) Install epel repo
+      yum:
+        name: epel-release
+        state: present
+        update_cache: true
+
     - name: (CentOS/RHEL) Install requirements
       yum:
         name: "{{ requirements.yum }}"
         state: present
         update_cache: true
+
