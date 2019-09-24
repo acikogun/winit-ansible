@@ -26,6 +26,7 @@ requirements:
     - which
     - bash-completion
     - python3
+    - python3-setuptools
   dnf:
     - git
     - curl
