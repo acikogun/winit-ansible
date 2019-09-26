@@ -22,9 +22,6 @@ provisioner:
   name: ansible
   lint:
     name: ansible-lint
-  inventory:
-    host_vars:
-      ansible_python_interpreter: "/usr/bin/python3"
 verifier:
   name: testinfra
   lint:
