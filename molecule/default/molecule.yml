@@ -24,17 +24,7 @@ provisioner:
     name: ansible-lint
   inventory:
     host_vars:
-      centos-7:
-        ansible_python_interpreter: "/usr/bin/python3"
       centos-8:
-        ansible_python_interpreter: "/usr/bin/python3"
-      debian-stretch:
-        ansible_python_interpreter: "/usr/bin/python3"
-      debian-buster:
-        ansible_python_interpreter: "/usr/bin/python3"
-      ubuntu-xenial:
-        ansible_python_interpreter: "/usr/bin/python3"
-      ubuntu-bionic:
         ansible_python_interpreter: "/usr/bin/python3"
 verifier:
   name: testinfra
