@@ -6,6 +6,3 @@
         name: ansible
         executable: pip3
         extra_args: --upgrade
-
-  when:
-    - ansible_enabled | bool

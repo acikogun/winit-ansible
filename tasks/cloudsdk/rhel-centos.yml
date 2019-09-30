@@ -15,5 +15,3 @@
       yum:
         name: "{{ cloudsdk.centos.install_list }}"
         state: present
-  when:
-    - cloudsdk_enabled | bool

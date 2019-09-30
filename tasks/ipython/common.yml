@@ -6,6 +6,3 @@
         name: ipython
         executable: pip3
         extra_args: --upgrade
-
-  when:
-    - ipython_enabled | bool

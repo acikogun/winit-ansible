@@ -13,36 +13,52 @@
 
 # awscli
 - import_tasks: awscli/common.yml
+  when:
+    - awscli_enabled | bool
 
 # ansible
 - import_tasks: ansible/common.yml
+  when:
+    - ansible_enabled | bool
 
 # ipython
 - import_tasks: ipython/common.yml
+  when:
+    - ipython_enabled | bool
 
 # go
 - import_tasks: go/common.yml
+  when:
+    - go_enabled | bool
 
 # cloudsdk
-- import_tasks: cloudsdk/debian-ubuntu.yml
-  when:
-    - ansible_os_family | lower == "debian"
+- name: Install cloudsdk
+  block:
+    - import_tasks: cloudsdk/debian-ubuntu.yml
+      when:
+        - ansible_os_family | lower == "debian"
 
-- import_tasks: cloudsdk/rhel-centos.yml
-  when:
-    - ansible_os_family | lower == "redhat"
+    - import_tasks: cloudsdk/rhel-centos.yml
+      when:
+        - ansible_os_family | lower == "redhat"
 
-- import_tasks: cloudsdk/common.yml
+    - import_tasks: cloudsdk/common.yml
+  when:
+    - cloudsdk_enabled | bool
 
 # docker
-- import_tasks: docker/debian.yml
-  when:
-    - ansible_distribution | lower == "debian"
+- name: Install Docker
+  block:
+    - import_tasks: docker/debian.yml
+      when:
+        - ansible_distribution | lower == "debian"
 
-- import_tasks: docker/ubuntu.yml
-  when:
-    - ansible_distribution | lower == "ubuntu"
+    - import_tasks: docker/ubuntu.yml
+      when:
+        - ansible_distribution | lower == "ubuntu"
 
-- import_tasks: docker/centos.yml
+    - import_tasks: docker/centos.yml
+      when:
+        - ansible_distribution | lower == "centos"
   when:
-    - ansible_distribution | lower == "centos"
+    - docker_enabled | bool

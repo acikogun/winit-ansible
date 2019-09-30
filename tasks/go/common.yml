@@ -25,6 +25,3 @@
         state: link
         force: true
       with_items: '{{ go.symlinks }}'
-
-  when:
-    - go_enabled | bool

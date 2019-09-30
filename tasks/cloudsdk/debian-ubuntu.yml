@@ -15,5 +15,3 @@
         name: "{{ cloudsdk.debian.install_list }}"
         update_cache: true
         state: present
-  when:
-    - cloudsdk_enabled | bool
