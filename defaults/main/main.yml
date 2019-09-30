@@ -5,7 +5,7 @@ cloudsdk_enabled: true
 
 # Install docker-ce
 # [true | false]
-docker_enabled: false
+docker_enabled: true
 
 # Install Go
 # [true | false]
