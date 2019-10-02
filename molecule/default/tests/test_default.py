@@ -18,6 +18,11 @@ def test_git_is_installed(host):
     assert git.is_installed
 
 
+def test_docker_is_installed(host):
+    docker = host.package("docker-ce")
+    assert docker.is_installed
+
+
 def test_go_is_installed(host):
     go = """go version"""
     cmd = host.run(go)
