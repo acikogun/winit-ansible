@@ -14,4 +14,3 @@
         name: "{{ docker.debian.install_list }}"
         update_cache: true
         state: present
-      notify: enable and start docker
