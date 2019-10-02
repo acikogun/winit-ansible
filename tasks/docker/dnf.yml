@@ -10,4 +10,3 @@
       dnf:
         name: "{{ docker.centos.install_list }}"
         state: present
-
