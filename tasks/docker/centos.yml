@@ -11,6 +11,3 @@
         name: "{{ docker.centos.install_list }}"
         state: present
       notify: enable and start docker
-
-  when:
-    - docker_enabled | bool
