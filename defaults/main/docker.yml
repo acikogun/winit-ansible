@@ -23,7 +23,10 @@ docker:
   centos:
     repo_url: https://download.docker.com/linux/centos/docker-ce.repo
     repo_dest: /etc/yum.repos.d/docker-ce.repo
-    requirements:
+    install_list:
       - device-mapper-persistent-data
       - lvm2
+      - docker-ce
+  dnf:
+    install_list:
       - docker-ce

@@ -1,12 +1,13 @@
 ---
-- name: (CentOS/7) Install docker-ce
+- name: (CentOS/8) Install docker-ce
   block:
-    - name: (CentOS/7) Add docker yum repository
+    - name: (CentOS/8) Add docker yum repository
       get_url:
         url: "{{ docker.centos.repo_url }}"
         dest: "{{ docker.centos.repo_dest }}"
 
-    - name: (CentOS/7) Install docker-ce
-      yum:
+    - name: (CentOS/8) Install docker-ce
+      dnf:
         name: "{{ docker.centos.install_list }}"
         state: present
+
