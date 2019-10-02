@@ -26,6 +26,4 @@ docker:
     requirements:
       - device-mapper-persistent-data
       - lvm2
-      - bash-completion
-    install_list:
       - docker-ce
