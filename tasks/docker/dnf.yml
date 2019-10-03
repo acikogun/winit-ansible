@@ -7,4 +7,4 @@
         dest: "{{ docker.centos.repo_dest }}"
 
     - name: (CentOS/8) Install docker-ce
-      shell: dnf makecache && dnf install -y docker-ce --nobest
+      shell: dnf makecache && dnf update -y && dnf install -y docker-ce --nobest
