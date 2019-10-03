@@ -7,7 +7,4 @@
         dest: "{{ docker.centos.repo_dest }}"
 
     - name: (CentOS/8) Install docker-ce
-      dnf:
-        name: "{{ docker.centos.install_list }}"
-        state: present
-        skip_broken: true
+      command: dnf install -y docker-ce --nobest

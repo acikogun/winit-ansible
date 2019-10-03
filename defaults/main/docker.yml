@@ -27,6 +27,3 @@ docker:
       - device-mapper-persistent-data
       - lvm2
       - docker-ce
-  dnf:
-    install_list:
-      - docker-ce
