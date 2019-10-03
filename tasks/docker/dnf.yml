@@ -10,3 +10,4 @@
       dnf:
         name: "{{ docker.centos.install_list }}"
         state: present
+        skip_broken: true
