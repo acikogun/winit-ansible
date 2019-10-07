@@ -1,0 +1,19 @@
+---
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.8.2
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Install Molecule
+          command: |
+            sudo pip install molecule[docker]==2.22
+      - run:
+          name: Run Molecule Testing CircleCI-locally with Docker
+          command: |
+            molecule test --all
