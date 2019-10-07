@@ -4,6 +4,7 @@ jobs:
   build:
     docker:
       - image: circleci/python:3.8.2
+    working_directory: ~/checkout
     steps:
       - checkout
       - setup_remote_docker
@@ -12,6 +13,7 @@ jobs:
           command: |
             sudo pip install molecule[docker]==2.22
       - run:
-          name: Run Molecule Testing CircleCI-locally with Docker
+          name: Run molecule test
           command: |
+            cd .. && ln -s checkout ${CIRCLE_PROJECT_REPONAME} && cd ${CIRCLE_PROJECT_REPONAME}
             molecule test --all
