@@ -15,5 +15,6 @@ jobs:
       - run:
           name: Run molecule test
           command: |
-            cd .. && ln -s checkout ${CIRCLE_PROJECT_REPONAME} && cd ${CIRCLE_PROJECT_REPONAME}
+            cd .. && ln -s checkout ${CIRCLE_PROJECT_REPONAME}
+            cd ${CIRCLE_PROJECT_REPONAME}
             molecule test --all
