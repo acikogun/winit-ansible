@@ -21,6 +21,8 @@ docker:
       - docker-ce-cli
       - containerd.io
   centos:
+    base_url: https://download.docker.com/linux/centos/7/x86_64/stable/Packages
+    containerd_rpm: containerd.io-1.2.6-3.3.el7.x86_64.rpm
     repo_url: https://download.docker.com/linux/centos/docker-ce.repo
     repo_dest: /etc/yum.repos.d/docker-ce.repo
     install_list:
