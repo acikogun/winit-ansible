@@ -19,6 +19,12 @@ def test_pip3_installed(host):
     assert 'python 3' in cmd.stdout
 
 
+def test_azurecli_installed(host):
+    az = """az version"""
+    cmd = host.run(az)
+    assert 'azure-cli' in cmd.stdout
+
+
 def test_git_installed(host):
     git = host.package("git")
     assert git.is_installed
