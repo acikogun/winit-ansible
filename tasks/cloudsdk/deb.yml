@@ -3,15 +3,15 @@
   block:
     - name: (Debian/Ubuntu) Add cloudsdk apt key
       apt_key:
-        url: "{{ cloudsdk.debian.repo_key }}"
-        keyring: "{{ cloudsdk.debian.keyring }}"
+        url: "{{ cloudsdk.deb_config.repo_key }}"
+        keyring: "{{ cloudsdk.deb_config.keyring }}"
 
     - name: (Debian/Ubuntu) Add cloudsdk apt repository
       apt_repository:
-        repo: "{{ cloudsdk.debian.repo_url }}"
+        repo: "{{ cloudsdk.deb_config.repo_url }}"
 
     - name: (Debian/Ubuntu) Install google-cloud-sdk and kubectl
       apt:
-        name: "{{ cloudsdk.debian.install_list }}"
+        name: "{{ cloudsdk.deb_config.install_list }}"
         update_cache: true
         state: present

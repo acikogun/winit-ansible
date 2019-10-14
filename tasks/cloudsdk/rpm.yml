@@ -5,13 +5,13 @@
       yum_repository:
         name: google-cloud-sdk
         description: Google Cloud SDK
-        baseurl: "{{ cloudsdk.centos.repo_url }}"
+        baseurl: "{{ cloudsdk.rpm_config.repo_url }}"
         enabled: true
         repo_gpgcheck: true
         gpgcheck: true
-        gpgkey: "{{ cloudsdk.centos.repo_key }}"
+        gpgkey: "{{ cloudsdk.rpm_config.repo_key }}"
 
     - name: (CentOS/RHEL) Install google-cloud-sdk and kubectl
       yum:
-        name: "{{ cloudsdk.centos.install_list }}"
+        name: "{{ cloudsdk.rpm_config.install_list }}"
         state: present

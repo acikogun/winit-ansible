@@ -1,11 +1,11 @@
 ---
 
 # Import requirements
-- import_tasks: requirements/debian-ubuntu.yml
+- import_tasks: requirements/deb.yml
   when:
     - ansible_os_family | lower == "debian"
 
-- import_tasks: requirements/centos.yml
+- import_tasks: requirements/rpm.yml
   when:
     - ansible_os_family | lower == "redhat"
 
@@ -34,11 +34,11 @@
 # cloudsdk
 - name: Install cloudsdk
   block:
-    - import_tasks: cloudsdk/debian-ubuntu.yml
+    - import_tasks: cloudsdk/deb.yml
       when:
         - ansible_os_family | lower == "debian"
 
-    - import_tasks: cloudsdk/rhel-centos.yml
+    - import_tasks: cloudsdk/rpm.yml
       when:
         - ansible_os_family | lower == "redhat"
 

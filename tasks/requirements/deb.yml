@@ -3,6 +3,6 @@
   block:
     - name: (Debian/Ubuntu) Install requirements
       apt:
-        name: "{{ requirements.apt }}"
+        name: "{{ requirements.deb_config.install_list }}"
         update_cache: true
         state: present
