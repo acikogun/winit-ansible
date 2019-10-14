@@ -3,6 +3,10 @@
 # [true | false]
 cloudsdk_enabled: true
 
+# Install azurecli
+# [true | false]
+azurecli_enabled: true
+
 # Install docker-ce
 # [true | false]
 docker_enabled: true

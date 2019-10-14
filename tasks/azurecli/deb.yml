@@ -1,0 +1,17 @@
+---
+- name: (Debian/Ubuntu) Install azurecli
+  block:
+    - name: (Debian/Ubuntu) Add azurecli apt key
+      apt_key:
+        url: "{{ azurecli.deb_config.repo_key }}"
+        keyring: "{{ azurecli.deb_config.keyring }}"
+
+    - name: (Debian/Ubuntu) Add azurecli apt repository
+      apt_repository:
+        repo: "{{ azurecli.deb_config.repo_url }}"
+
+    - name: (Debian/Ubuntu) Install azurecli
+      apt:
+        name: "{{ azurecli.deb_config.install_list }}"
+        update_cache: true
+        state: present

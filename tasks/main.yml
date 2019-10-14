@@ -46,6 +46,19 @@
   when:
     - cloudsdk_enabled | bool
 
+# azurecli
+- name: Install azurecli
+  block:
+    - import_tasks: azurecli/deb.yml
+      when:
+        - ansible_os_family | lower == "debian"
+
+    - import_tasks: azurecli/rpm.yml
+      when:
+        - ansible_os_family | lower == "redhat"
+  when:
+    - azurecli_enabled | bool
+
 # docker
 - name: Install Docker
   block:

@@ -1,0 +1,17 @@
+---
+- name: (CentOS/RHEL) Install azurecli
+  block:
+    - name: (CentOS/RHEL) Add azurecli yum repository
+      yum_repository:
+        name: google-cloud-sdk
+        description: Azurecli yum repo
+        baseurl: "{{ azurecli.rpm_config.repo_url }}"
+        enabled: true
+        repo_gpgcheck: true
+        gpgcheck: true
+        gpgkey: "{{ azurecli.rpm_config.repo_key }}"
+
+    - name: (CentOS/RHEL) Install azurecli
+      yum:
+        name: "{{ azurecli.rpm_config.install_list }}"
+        state: present
