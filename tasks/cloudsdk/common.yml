@@ -3,4 +3,4 @@
   lineinfile:
     create: true
     line: "source <(kubectl completion bash)"
-    dest: "/etc/profile.d/kubectl_bash_completion.sh"
+    dest: '{{ kubectl_bash_comp_dest }}'

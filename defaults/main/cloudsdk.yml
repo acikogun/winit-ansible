@@ -2,7 +2,8 @@
 # Default cloudsdk settings
 
 cloudsdk:
-  debian:
+  kubectl_bash_comp_dest: /etc/profile.d/kubectl_bash_completion.sh
+  deb_config:
     repo_url: >-
       deb [signed-by=/usr/share/keyrings/cloud.google.gpg]
       http://packages.cloud.google.com/apt cloud-sdk main
@@ -11,7 +12,7 @@ cloudsdk:
     install_list:
       - google-cloud-sdk
       - kubectl
-  centos:
+  rpm_config:
     repo_url: https://packages.cloud.google.com/yum/repos/cloud-sdk-el7-x86_64
     repo_key:
       - https://packages.cloud.google.com/yum/doc/yum-key.gpg
