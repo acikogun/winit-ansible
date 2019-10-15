@@ -21,11 +21,6 @@
   when:
     - ansible_enabled | bool
 
-# ipython
-- import_tasks: ipython/common.yml
-  when:
-    - ipython_enabled | bool
-
 # go
 - import_tasks: go/common.yml
   when:

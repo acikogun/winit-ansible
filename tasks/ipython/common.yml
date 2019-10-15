@@ -1,8 +1,0 @@
----
-- name: Install IPython
-  block:
-    - name: Install IPython
-      pip:
-        name: ipython
-        executable: pip3
-        extra_args: --upgrade

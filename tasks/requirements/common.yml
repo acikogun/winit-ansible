@@ -7,9 +7,11 @@
         executable: pip3
         extra_args: --upgrade
 
-    - name: Install virtualenv
+    - name: Install virtualenv and IPython
       pip:
-        name: virtualenv
+        name:
+          - virtualenv
+          - ipython
         executable: pip3
         extra_args: --upgrade
 

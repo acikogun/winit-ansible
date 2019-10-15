@@ -19,10 +19,6 @@ go_enabled: true
 # [true | false]
 awscli_enabled: true
 
-# Install IPython
-# [true | false]
-ipython_enabled: true
-
 # Install ansible
 # [true | false]
 ansible_enabled: true
