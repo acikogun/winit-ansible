@@ -14,5 +14,7 @@
         extra_args: --upgrade
 
     - name: Enable pip bash completion
-      shell: 'pip completion --bash > {{ requirements.pip.bash_comp_dest }}'
-      changed_when: false
+      lineinfile:
+        create: true
+        line: "source <(pip completion --bash)"
+        dest: '{{ requirements.pip_config.bash_comp_dest }}'
