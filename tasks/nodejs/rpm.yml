@@ -1,0 +1,21 @@
+---
+- name: (CentOS/RHEL) Install NodeJS 12 (LTS)
+  block:
+    - name: (CentOS/RHEL) Install NodeJS 12 (LTS) yum repo
+      shell: |
+        curl -sL {{ nodejs.rpm_config.repo_script }} | bash -
+
+    - name: (CentOS/RHEL) Install NodeJS 12 (LTS)
+      yum:
+        name: nodejs
+        state: present
+
+    - name: (CentOS/RHEL) Install/Update npm
+      npm:
+        name: npm
+        global: yes
+
+    - name: (CentOS/RHEL) Install yarn
+      npm:
+        name: yarn
+        global: yes

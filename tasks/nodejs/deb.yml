@@ -1,0 +1,22 @@
+---
+- name: (Debian/Ubuntu) Install NodeJS 12 (LTS)
+  block:
+    - name: (Debian/Ubuntu) Install NodeJS 12 (LTS) apt repo
+      shell: |
+        curl -sL {{ nodejs.deb_config.repo_script }} | bash -
+
+    - name: (Debian/Ubuntu) Install NodeJS 12 (LTS)
+      apt:
+        name: nodejs
+        update_cache: true
+        state: present
+
+    - name: (Debian/Ubuntu) Install/Update npm
+      npm:
+        name: npm
+        global: yes
+
+    - name: (Debian/Ubuntu) Install yarn
+      npm:
+        name: yarn
+        global: yes

@@ -1,0 +1,8 @@
+---
+# Default nodejs settings
+
+nodejs:
+  deb_config:
+    repo_script: https://deb.nodesource.com/setup_12.x
+  rpm_config:
+    repo_script: https://rpm.nodesource.com/setup_12.x

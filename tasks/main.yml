@@ -76,3 +76,16 @@
         - ansible_distribution_major_version == "8"
   when:
     - docker_enabled | bool
+
+# nodejs
+- name: Install nodejs
+  block:
+    - import_tasks: nodejs/deb.yml
+      when:
+        - ansible_os_family | lower == "debian"
+
+    - import_tasks: nodejs/rpm.yml
+      when:
+        - ansible_os_family | lower == "redhat"
+  when:
+    - nodejs_enabled | bool
