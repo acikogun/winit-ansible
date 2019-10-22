@@ -69,6 +69,33 @@ def test_ipython_installed(host):
     assert 'IPython' in cmd.stdout
 
 
+def test_java_installed(host):
+    java = """java -version"""
+    cmd = host.run(java)
+    assert 'openjdk' in cmd.stdout
+    assert 'AdoptOpenJDK' in cmd.stdout
+
+
+def test_nodejs_installed(host):
+    nodejs = """node -v"""
+    cmd = host.run(nodejs)
+    assert 'v12' in cmd.stdout
+
+
+def test_npm_installed(host):
+    npm = """npm help"""
+    cmd = host.run(npm)
+    assert 'Usage: npm ' in cmd.stdout
+
+
+def test_yarn_installed(host):
+    yarn = """yarn versions"""
+    cmd = host.run(yarn)
+    assert 'yarn' in cmd.stdout
+    assert 'node' in cmd.stdout
+    assert 'v8' in cmd.stdout
+
+
 def test_bash_completion_files(host):
     assert host.file('/etc/profile.d/kubectl_bash_completion.sh').exists
     assert host.file('/etc/profile.d/pip_bash_completion.sh').exists
