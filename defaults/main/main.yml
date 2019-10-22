@@ -26,3 +26,7 @@ ansible_enabled: false
 # Install nodejs
 # [false | false]
 nodejs_enabled: true
+
+# Install java
+# [false | false]
+java_enabled: true

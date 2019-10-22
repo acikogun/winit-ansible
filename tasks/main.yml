@@ -89,3 +89,16 @@
         - ansible_os_family | lower == "redhat"
   when:
     - nodejs_enabled | bool
+
+# java
+- name: Install Java
+  block:
+    - import_tasks: java/deb.yml
+      when:
+        - ansible_os_family | lower == "debian"
+
+    - import_tasks: java/rpm.yml
+      when:
+        - ansible_os_family | lower == "redhat"
+  when:
+    - java_enabled | bool

@@ -1,0 +1,17 @@
+---
+- name: (CentOS/RHEL) Install Java
+  block:
+    - name: (CentOS/RHEL) Add AdoptOpenJDK yum repository
+      yum_repository:
+        name: AdoptOpenJDK
+        description: AdoptOpenJDK
+        baseurl: "{{ java.rpm_config.repo_url }}"
+        enabled: true
+        repo_gpgcheck: true
+        gpgcheck: true
+        gpgkey: "{{ java.rpm_config.repo_key }}"
+
+    - name: (CentOS/RHEL) Install Java
+      yum:
+        name: "adoptopenjdk-{{ java.default_version }}-hotspot"
+        state: present

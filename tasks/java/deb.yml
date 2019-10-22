@@ -1,0 +1,16 @@
+---
+- name: (Debian/Ubuntu) Install Java
+  block:
+    - name: (Debian/Ubuntu) Add AdoptOpenJDK apt repository key
+      apt_key:
+        url: "{{ java.deb_config.repo_key }}"
+
+    - name: (Debian/Ubuntu) Add AdoptOpenJDK apt repository
+      apt_repository:
+        repo: "{{ java.deb_config.repo_url }}"
+
+    - name: (Debian/Ubuntu) Install Java
+      apt:
+        name: "adoptopenjdk-{{ java.default_version }}-hotspot"
+        update_cache: true
+        state: present
