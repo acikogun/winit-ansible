@@ -1,32 +1,32 @@
 ---
 # Install cloudsdk
-# [false | false]
-cloudsdk_enabled: false
+# [true | false]
+cloudsdk_enabled: true
 
 # Install azurecli
-# [false | false]
-azurecli_enabled: false
+# [true | false]
+azurecli_enabled: true
 
 # Install docker-ce
-# [false | false]
-docker_enabled: false
+# [true | false]
+docker_enabled: true
 
 # Install Go
-# [false | false]
-go_enabled: false
+# [true | false]
+go_enabled: true
 
 # Install awscli
-# [false | false]
-awscli_enabled: false
+# [true | false]
+awscli_enabled: true
 
 # Install ansible
-# [false | false]
-ansible_enabled: false
+# [true | false]
+ansible_enabled: true
 
 # Install nodejs
-# [false | false]
+# [true | false]
 nodejs_enabled: true
 
 # Install java
-# [false | false]
-java_enabled: false
+# [true | false]
+java_enabled: true
