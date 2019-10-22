@@ -4,5 +4,7 @@
 nodejs:
   deb_config:
     repo_script: https://deb.nodesource.com/setup_12.x
+    download_dest: /tmp/nodejs_deb.sh
   rpm_config:
     repo_script: https://rpm.nodesource.com/setup_12.x
+    download_dest: /tmp/nodejs_rpm.sh
