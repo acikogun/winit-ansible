@@ -3,4 +3,4 @@
   lineinfile:
     create: true
     line: "source <(kubectl completion bash)"
-    dest: '{{ kubectl_bash_comp_dest }}'
+    dest: '{{ cloudsdk.kubectl_bash_comp_dest }}'
