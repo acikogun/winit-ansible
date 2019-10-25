@@ -70,7 +70,7 @@ def test_ipython_installed(host):
 
 
 def test_java_installed(host):
-    java = """java -version"""
+    java = """java -version 2>&1"""
     cmd = host.run(java)
     assert 'openjdk' in cmd.stdout
     assert 'AdoptOpenJDK' in cmd.stdout
