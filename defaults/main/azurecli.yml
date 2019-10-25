@@ -6,7 +6,6 @@ azurecli:
     repo_url: >-
       deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/
       {{ ansible_distribution_release }} main
-      http://packages.cloud.google.com/apt cloud-sdk main
     repo_key: https://packages.microsoft.com/keys/microsoft.asc
     keyring: /etc/apt/trusted.gpg.d/microsoft.asc.gpg
     install_list:

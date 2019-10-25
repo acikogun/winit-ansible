@@ -3,7 +3,7 @@
   block:
     - name: (CentOS/RHEL) Add azurecli yum repository
       yum_repository:
-        name: google-cloud-sdk
+        name: azure-cli
         description: Azurecli yum repo
         baseurl: "{{ azurecli.rpm_config.repo_url }}"
         enabled: true
