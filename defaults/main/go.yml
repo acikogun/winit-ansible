@@ -2,9 +2,10 @@
 # Default go settings
 
 go:
+  version_url: https://golang.org/VERSION?m=text
   install: /usr
-  src: https://dl.google.com/go/{{ go_version.content }}.linux-amd64.tar.gz
-  dest: /tmp/{{ go_version.content }}.linux-amd64.tar.gz
+  base_url: https://dl.google.com/go
+  file_suffix: .linux-amd64.tar.gz
   symlinks:
     - {src: /usr/go/bin/go, dest: /usr/bin/go}
     - {src: /usr/go/bin/gofmt, dest: /usr/bin/gofmt}

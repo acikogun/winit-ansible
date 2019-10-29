@@ -1,27 +1,35 @@
 ---
+- name: Get the latest stable version of Go
+  uri:
+    url: "{{ go.version_url }}"
+    return_content: true
+  register: go_version
+
 - name: Install Go
   block:
-    - name: Get the latest stable version of Go
-      uri:
-        url: https://golang.org/VERSION?m=text
-        return_content: true
-      register: go_version
-
     - name: Download Go
       get_url:
-        url: '{{ go.src }}'
-        dest: '{{ go.dest }}'
+        url: "{{ go.base_url }}/{{ go_version.content }}{{ go.file_suffix }}"
+        dest: "/tmp/{{ go_version.content }}{{ go.file_suffix }}"
+      changed_when: false
 
     - name: Install Go
       unarchive:
-        src: '{{ go.dest }}'
-        dest: '{{ go.install }}'
+        src: "/tmp/{{ go_version.content }}{{ go.file_suffix }}"
+        dest: "{{ go.install }}"
         copy: false
+      changed_when: false
 
     - name: Create a symbolic links for Go binaries
       file:
-        src: '{{ item.src }}'
-        dest: '{{ item.dest }}'
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
         state: link
         force: true
-      with_items: '{{ go.symlinks }}'
+      with_items: "{{ go.symlinks }}"
+
+    - name: Remove the downloaded file
+      file:
+        path: "/tmp/{{ go_version.content }}{{ go.file_suffix }}"
+        state: absent
+      changed_when: false
