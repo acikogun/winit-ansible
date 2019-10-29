@@ -1,7 +1,7 @@
 ---
 - name: Get the latest stable version of Go
   uri:
-    url: "{{ go.version_url }}"
+    url: "{{ go.api_url }}"
     return_content: true
   register: go_version
 

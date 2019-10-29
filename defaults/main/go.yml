@@ -2,7 +2,7 @@
 # Default go settings
 
 go:
-  version_url: https://golang.org/VERSION?m=text
+  api_url: https://golang.org/VERSION?m=text
   install: /usr
   base_url: https://dl.google.com/go
   file_suffix: .linux-amd64.tar.gz
