@@ -1,24 +1,24 @@
 ---
-- name: Get the latest stable version of Go
+- name: Check the latest stable version of Go
   uri:
     url: "{{ go.api_url }}"
     return_content: true
-  register: go_version
+  register: go_rmt_ver
+
+- name: Check if the latest version of Go installed already
+  command: "go version"
+  register: go_local_ver
+  ignore_errors: true
+  failed_when: false
+  changed_when: false
 
 - name: Install Go
   block:
-    - name: Download Go
-      get_url:
-        url: "{{ go.base_url }}/{{ go_version.content }}{{ go.file_suffix }}"
-        dest: "/tmp/{{ go_version.content }}{{ go.file_suffix }}"
-      changed_when: false
-
     - name: Install Go
       unarchive:
-        src: "/tmp/{{ go_version.content }}{{ go.file_suffix }}"
+        src: "{{ go.base_url }}/{{ go_rmt_ver.content }}{{ go.file_suffix }}"
         dest: "{{ go.install }}"
-        copy: false
-      changed_when: false
+        remote_src: true
 
     - name: Create a symbolic links for Go binaries
       file:
@@ -28,8 +28,4 @@
         force: true
       with_items: "{{ go.symlinks }}"
 
-    - name: Remove the downloaded file
-      file:
-        path: "/tmp/{{ go_version.content }}{{ go.file_suffix }}"
-        state: absent
-      changed_when: false
+  when: go_rmt_ver.content not in go_local_ver.stdout | default('notinstalled')
