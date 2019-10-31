@@ -96,6 +96,12 @@ def test_yarn_installed(host):
     assert 'v8' in cmd.stdout
 
 
+def test_terraform_installed(host):
+    terraform = """/usr/bin/terraform -v"""
+    cmd = host.run(yarn)
+    assert 'Terraform' in cmd.stdout
+
+
 def test_bash_completion_files(host):
     assert host.file('/etc/profile.d/kubectl_bash_completion.sh').exists
     assert host.file('/etc/profile.d/pip_bash_completion.sh').exists
