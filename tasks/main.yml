@@ -102,3 +102,8 @@
         - ansible_os_family | lower == "redhat"
   when:
     - java_enabled | bool
+
+# terraform
+- import_tasks: terraform/common.yml
+  when:
+    - terraform_enabled | bool

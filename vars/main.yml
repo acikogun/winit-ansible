@@ -30,3 +30,7 @@ nodejs_enabled: true
 # Install java
 # [true | false]
 java_enabled: true
+
+# Install terraform
+# [true | false]
+terraform_enabled: true
