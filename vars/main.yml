@@ -34,3 +34,7 @@ java_enabled: true
 # Install terraform
 # [true | false]
 terraform_enabled: true
+
+# Install packer
+# [true | false]
+packer_enabled: true
