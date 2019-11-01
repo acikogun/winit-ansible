@@ -108,6 +108,14 @@ def test_packer_installed(host):
     assert 'Usage: packer' in cmd.stdout
 
 
+def test_vagrant_files(host):
+    """
+    I don't test by executing vagrant like terraform and packer
+    because it doesn't work properly in containers.
+    """
+    assert host.file('/usr/bin/vagrant').exists
+
+
 def test_bash_completion_files(host):
     assert host.file('/etc/profile.d/kubectl_bash_completion.sh').exists
     assert host.file('/etc/profile.d/pip_bash_completion.sh').exists

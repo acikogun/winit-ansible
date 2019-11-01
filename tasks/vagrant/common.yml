@@ -1,0 +1,30 @@
+---
+
+- name: Get Vagrant releases API
+  uri:
+    url: "{{ vagrant.api_url }}"
+    return_content: true
+  register: vagrant_releases
+
+- name: Find the latest version of Vagrant
+  set_fact:
+    vagrant_remote_version: "{{ ( vagrant_releases.content |\
+      from_json).versions | list | last }}"
+
+- name: Check if the latest version of Vagrant installed already
+  shell: "{{ vagrant.install }}/vagrant -v"
+  register: vagrant_local_version
+  ignore_errors: true
+  changed_when: false
+  failed_when: false
+
+- name: Install Vagrant
+  unarchive:
+    src: "{{ vagrant.base_url }}/{{ vagrant_remote_version }}/\
+      {{ vagrant.file_prefix }}{{ vagrant_remote_version }}\
+      {{ vagrant.file_suffix }}"
+    dest: "{{ vagrant.install }}"
+    remote_src: true
+  when: >-
+    vagrant_remote_version not in vagrant_local_version.stdout |
+    default('notinstalled')

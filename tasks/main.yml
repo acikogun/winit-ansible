@@ -112,3 +112,8 @@
 - import_tasks: packer/common.yml
   when:
     - packer_enabled | bool
+
+# vagrant
+- import_tasks: vagrant/common.yml
+  when:
+    - vagrant_enabled | bool

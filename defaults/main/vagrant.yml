@@ -1,0 +1,9 @@
+---
+# Default vagrant settings
+
+vagrant:
+  api_url: https://releases.hashicorp.com/vagrant/index.json
+  install: /usr/bin
+  base_url: https://releases.hashicorp.com/vagrant
+  file_suffix: _linux_amd64.zip
+  file_prefix: vagrant_

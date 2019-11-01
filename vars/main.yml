@@ -38,3 +38,7 @@ terraform_enabled: true
 # Install packer
 # [true | false]
 packer_enabled: true
+
+# Install vagrant
+# [true | false]
+vagrant_enabled: true
