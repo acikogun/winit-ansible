@@ -1,0 +1,30 @@
+---
+
+- name: Get Packer releases API
+  uri:
+    url: "{{ packer.api_url }}"
+    return_content: true
+  register: packer_releases
+
+- name: Find the latest version of packer
+  set_fact:
+    packer_remote_version: "{{ ( packer_releases.content |\
+      from_json).tag_name | regex_replace('v') }}"
+
+- name: Check if the latest version of packer installed already
+  shell: "{{ packer.install }}/packer -v | head -1"
+  register: packer_local_version
+  ignore_errors: true
+  changed_when: false
+  failed_when: false
+
+- name: Install packer
+  unarchive:
+    src: "{{ packer.base_url }}/{{ packer_remote_version }}/\
+      {{ packer.file_prefix }}{{ packer_remote_version }}\
+      {{ packer.file_suffix }}"
+    dest: "{{ packer.install }}"
+    remote_src: true
+  when: >-
+    packer_remote_version not in packer_local_version.stdout |
+    default('notinstalled')

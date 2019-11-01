@@ -1,0 +1,9 @@
+---
+# Default packer settings
+
+packer:
+  api_url: https://api.github.com/repos/hashicorp/packer/releases/latest
+  install: /usr/bin
+  base_url: https://releases.hashicorp.com/packer
+  file_suffix: _linux_amd64.zip
+  file_prefix: packer_

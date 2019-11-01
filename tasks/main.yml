@@ -107,3 +107,8 @@
 - import_tasks: terraform/common.yml
   when:
     - terraform_enabled | bool
+
+# packer
+- import_tasks: packer/common.yml
+  when:
+    - packer_enabled | bool

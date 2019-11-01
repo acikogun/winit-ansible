@@ -98,8 +98,14 @@ def test_yarn_installed(host):
 
 def test_terraform_installed(host):
     terraform = """/usr/bin/terraform -v"""
-    cmd = host.run(yarn)
+    cmd = host.run(terraform)
     assert 'Terraform' in cmd.stdout
+
+
+def test_packer_installed(host):
+    packer = """/usr/bin/packer -h"""
+    cmd = host.run(packer)
+    assert 'Usage: packer' in cmd.stdout
 
 
 def test_bash_completion_files(host):
