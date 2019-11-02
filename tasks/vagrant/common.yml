@@ -12,7 +12,7 @@
       from_json).versions | list | last }}"
 
 - name: Check if the latest version of Vagrant installed already
-  shell: "{{ vagrant.install }}/vagrant -v"
+  command: "{{ vagrant.install }}/vagrant -v"
   register: vagrant_local_version
   ignore_errors: true
   changed_when: false
