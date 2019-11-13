@@ -108,12 +108,18 @@ def test_packer_installed(host):
     assert 'Usage: packer' in cmd.stdout
 
 
-def test_vagrant_files(host):
+def test_vagrant_installed(host):
     """
     I don't test by executing vagrant like terraform and packer
     because it doesn't work properly in containers.
     """
     assert host.file('/usr/bin/vagrant').exists
+
+
+def test_docker_compose_installed(host):
+    compose = """/usr/bin/docker-compose -v"""
+    cmd = host.run(compose)
+    assert 'docker-compose version' in cmd.stdout
 
 
 def test_bash_completion_files(host):

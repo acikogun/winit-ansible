@@ -42,3 +42,7 @@ packer_enabled: true
 # Install vagrant
 # [true | false]
 vagrant_enabled: true
+
+# Install docker-compose
+# [true | false]
+docker_compose_enabled: true

@@ -117,3 +117,8 @@
 - import_tasks: vagrant/common.yml
   when:
     - vagrant_enabled | bool
+
+# docker-compose
+- import_tasks: docker-compose/common.yml
+  when:
+    - docker_compose_enabled | bool
