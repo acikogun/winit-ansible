@@ -1,6 +1,6 @@
 ---
 
-- name: Get ekctl releases API
+- name: Get ekctl releases
   uri:
     url: "{{ eksctl.api_url }}"
     return_content: true

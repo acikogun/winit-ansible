@@ -1,6 +1,6 @@
 ---
 
-- name: Get Terraform releases API
+- name: Get Terraform releases
   uri:
     url: "{{ terraform.api_url }}"
     return_content: true

@@ -1,6 +1,6 @@
 ---
 
-- name: Get Vagrant releases API
+- name: Get Vagrant releases
   uri:
     url: "{{ vagrant.api_url }}"
     return_content: true

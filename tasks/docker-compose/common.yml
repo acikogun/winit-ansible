@@ -1,6 +1,6 @@
 ---
 
-- name: Get docker-compose releases API
+- name: Get docker-compose releases
   uri:
     url: "{{ docker_compose.api_url }}"
     return_content: true

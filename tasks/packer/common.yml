@@ -1,6 +1,6 @@
 ---
 
-- name: Get Packer releases API
+- name: Get Packer releases
   uri:
     url: "{{ packer.api_url }}"
     return_content: true
