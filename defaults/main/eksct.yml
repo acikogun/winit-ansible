@@ -1,0 +1,10 @@
+---
+# Default eksctl settings
+
+eksctl:
+  api_url: https://api.github.com/repos/weaveworks/eksctl/releases/latest
+  install: /usr/bin
+  base_url: "https://github.com/weaveworks/eksctl/releases\
+  /download/latest_release"
+  download_file_name: eksctl_Linux_amd64.tar.gz
+  bash_comp_dest: /etc/profile.d/eksctl_bash.sh

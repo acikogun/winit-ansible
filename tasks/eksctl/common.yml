@@ -1,0 +1,34 @@
+---
+
+- name: Get ekctl releases API
+  uri:
+    url: "{{ eksctl.api_url }}"
+    return_content: true
+  register: eksctl_releases
+
+- name: Find the latest version of eksctl
+  set_fact:
+    eksctl_remote_version: "{{ ( eksctl_releases.content |\
+      from_json).tag_name }}"
+
+- name: Check if the latest version of ekctl installed already
+  command: "{{ eksctl.install }}/eksctl version"
+  register: eksctl_local_version
+  ignore_errors: true
+  changed_when: false
+  failed_when: false
+
+- name: Install eksctl
+  unarchive:
+    src: "{{ eksctl.base_url }}/{{ eksctl.download_file_name }}"
+    dest: "{{ eksctl.install }}"
+    remote_src: true
+  when: >-
+    eksctl_remote_version not in eksctl_local_version.stdout |
+    default('notinstalled')
+
+- name: Enable eksctl bash completion
+  lineinfile:
+    create: true
+    line: "source <(eksctl completion bash)"
+    dest: '{{ eksctl.bash_comp_dest }}'
