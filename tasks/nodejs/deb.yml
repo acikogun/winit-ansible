@@ -17,13 +17,3 @@
         name: nodejs
         state: present
         update_cache: true
-
-    - name: (Debian/Ubuntu) Install/Update npm
-      npm:
-        name: npm
-        global: true
-
-    - name: (Debian/Ubuntu) Install yarn
-      npm:
-        name: yarn
-        global: true

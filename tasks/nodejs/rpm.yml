@@ -15,13 +15,3 @@
       yum:
         name: nodejs
         state: present
-
-    - name: (CentOS/RHEL) Install/Update npm
-      npm:
-        name: npm
-        global: true
-
-    - name: (CentOS/RHEL) Install yarn
-      npm:
-        name: yarn
-        global: true

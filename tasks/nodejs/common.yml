@@ -1,0 +1,12 @@
+---
+- name: Install npm and yarn
+  block:
+    - name: Install/Update npm
+      npm:
+        name: npm
+        global: true
+
+    - name: Install yarn
+      npm:
+        name: yarn
+        global: true

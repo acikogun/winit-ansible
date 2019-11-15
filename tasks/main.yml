@@ -87,6 +87,8 @@
     - import_tasks: nodejs/rpm.yml
       when:
         - ansible_os_family | lower == "redhat"
+
+    - import_tasks: nodejs/common.yml
   when:
     - nodejs_enabled | bool
 
