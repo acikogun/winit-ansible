@@ -2,6 +2,7 @@
 # Default nodejs settings
 
 nodejs:
+  npm_bash_comp_dest: "/etc/profile.d/npm_bash.sh"
   deb_config:
     repo_script: https://deb.nodesource.com/setup_12.x
     download_dest: /tmp/nodejs_deb.sh

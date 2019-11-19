@@ -10,3 +10,9 @@
       npm:
         name: yarn
         global: true
+
+    - name: Enable npm bash completion
+      lineinfile:
+        create: true
+        line: "source <(npm completion bash)"
+        dest: '{{ nodejs.npm_bash_comp_dest }}'
