@@ -51,3 +51,7 @@ docker_compose_enabled: true
 # Install eksctl
 # [true | false]
 eksctl_enabled: true
+
+# Install helm
+# [true | false]
+helm_enabled: true

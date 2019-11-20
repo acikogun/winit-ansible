@@ -129,3 +129,8 @@
 - import_tasks: eksctl/common.yml
   when:
     - eksctl_enabled | bool
+
+# helm
+- import_tasks: helm/common.yml
+  when:
+    - helm_enabled | bool

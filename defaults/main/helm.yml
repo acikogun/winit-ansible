@@ -1,0 +1,10 @@
+---
+# Default helm settings
+
+helm:
+  api_url: https://api.github.com/repos/helm/helm/releases/latest
+  install: /usr/bin
+  base_url: https://get.helm.sh
+  file_prefix: "helm-"
+  file_suffix: "-linux-amd64.tar.gz"
+  bash_comp_dest: /etc/profile.d/helm_bash.sh
