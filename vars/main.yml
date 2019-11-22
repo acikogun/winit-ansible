@@ -55,3 +55,7 @@ eksctl_enabled: true
 # Install helm
 # [true | false]
 helm_enabled: true
+
+# Install helm
+# [true | false]
+shellcheck_enabled: true

@@ -134,3 +134,8 @@
 - import_tasks: helm/common.yml
   when:
     - helm_enabled | bool
+
+# shellcheck
+- import_tasks: shellcheck/common.yml
+  when:
+    - shellcheck_enabled | bool
