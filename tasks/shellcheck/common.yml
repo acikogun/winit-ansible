@@ -12,7 +12,7 @@
       from_json).tag_name }}"
 
 - name: Check if the latest version of Shellcheck installed already
-  command: "{{ shellcheck.install }}/shellcheck version"
+  command: "{{ shellcheck.install }}/shellcheck -V"
   register: shellcheck_local_version
   ignore_errors: true
   changed_when: false
