@@ -3,7 +3,7 @@
 
 requirements:
   pip_config:
-    bash_comp_dest: /etc/profile.d/pip_bash_completion.sh
+    bash_comp_dest: /etc/profile.d/pip_bash.sh
   deb_config:
     install_list:
       - git

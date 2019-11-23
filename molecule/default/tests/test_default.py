@@ -123,6 +123,9 @@ def test_docker_compose_installed(host):
 
 
 def test_bash_completion_files(host):
-    assert host.file('/etc/profile.d/kubectl_bash_completion.sh').exists
-    assert host.file('/etc/profile.d/pip_bash_completion.sh').exists
-    assert host.file('/etc/profile.d/awscli_bash_completion.sh').exists
+    assert host.file('/etc/profile.d/kubectl_bash.sh').exists
+    assert host.file('/etc/profile.d/pip_bash.sh').exists
+    assert host.file('/etc/profile.d/awscli_bash.sh').exists
+    assert host.file('/etc/profile.d/eksctl_bash.sh').exists
+    assert host.file('/etc/profile.d/helm_bash.sh').exists
+    assert host.file('/etc/profile.d/npm_bash.sh').exists

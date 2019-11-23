@@ -2,7 +2,7 @@
 # Default cloudsdk settings
 
 cloudsdk:
-  kubectl_bash_comp_dest: /etc/profile.d/kubectl_bash_completion.sh
+  kubectl_bash_comp_dest: /etc/profile.d/kubectl_bash.sh
   deb_config:
     repo_url: >-
       deb [signed-by=/usr/share/keyrings/cloud.google.gpg]
