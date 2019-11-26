@@ -122,6 +122,24 @@ def test_docker_compose_installed(host):
     assert 'docker-compose version' in cmd.stdout
 
 
+def test_eksctl_installed(host):
+    eksctl = """/usr/bin/eksctl help version"""
+    cmd = host.run(eksctl)
+    assert 'Usage: eksctl version' in cmd.stdout
+
+
+def test_helm_installed(host):
+    helm = """/usr/bin/helm version"""
+    cmd = host.run(helm)
+    assert 'version.BuildInfo' in cmd.stdout
+
+
+def test_shellcheck_installed(host):
+    shellcheck = """/usr/bin/shellcheck -V"""
+    cmd = host.run(shellcheck)
+    assert 'ShellCheck - shell script analysis tool' in cmd.stdout
+
+
 def test_bash_completion_files(host):
     assert host.file('/etc/profile.d/kubectl_bash.sh').exists
     assert host.file('/etc/profile.d/pip_bash.sh').exists
