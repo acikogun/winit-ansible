@@ -1,4 +1,18 @@
 ---
+scenario:
+  test_sequence:
+    - dependency
+    - lint
+    - cleanup
+    - destroy
+    - syntax
+    - create
+    - prepare
+    - converge
+    - side_effect
+    - verify
+    - cleanup
+    - destroy
 dependency:
   name: galaxy
 driver:
@@ -8,16 +22,6 @@ lint:
 platforms:
   - name: centos-7
     image: centos:7
-  - name: centos-8
-    image: centos:8
-  - name: debian-stretch
-    image: debian:stretch
-  - name: debian-buster
-    image: debian:buster
-  - name: ubuntu-xenial
-    image: ubuntu:xenial
-  - name: ubuntu-bionic
-    image: ubuntu:bionic
 provisioner:
   name: ansible
   lint:
