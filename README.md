@@ -14,20 +14,44 @@ Ansible role for [winit](https://github.com/acikogun/winit) that is a collection
 
 Available tools
 ------------
-go, docker, ansible, cloudsdk, awscli, IPython, git
+
+- ansible
+- awscli
+- azurecli
+- cloudsdk
+- docker
+- docker-compose
+- eksctl
+- go
+- helm
+- ipython
+- java8
+- java11
+- node
+- packer
+- shellcheck
+- terraform
+- vagrant
+
 
 Notes:
-- Python3 and pip installed automatically.
-- kubectl installed as a dependency to cloudsdk.
+-  **git**, **python3**, **pip**, **virtualenv** and **ipython** are installed as
+requirements before any tool.
+-  **node** version is LTS(Erbium). **npm** and **yarn** are installed as dependencies.
+-  **cloudsdk** installs **kubectl** as dependency.
+-  **docker** installs **docker-compose** as dependency.
+-  bash completion is enabled for **aws**, **kubectl**, **helm**, **eksctl** and **npm**.
 
 
 Requirements
 ------------
+
 This role was developed using Ansible 2.8.4. Backwards compatibility is not guaranteed.
 
 
 Supported platforms
 ------------
+
 Note: Only linux/amd64 is supported.
 
 ```yaml
@@ -37,23 +61,25 @@ CentOS:
     - 8
 Debian:
   versions:
-    - stretch
-    - buster
+    - 9 (stretch)
+    - 10 (buster)
 Ubuntu:
   versions:
-    - xenial
-    - bionic
+    - 16 (xenial
+    - 18 (bionic)
 ```
 
 Install
 --------------
-```
+
+```bash
 ansible-galaxy install acikogun.winit_ansible_role
 ```
 
 Example Playbook
 --------------
-```
+
+```yaml
 ---
 - hosts: local
   roles:
@@ -64,37 +90,66 @@ Example Playbook
 Role Variables
 --------------
 
-```
+```yaml
 # Install cloudsdk
 # [true | false]
 cloudsdk_enabled: true
+
+# Install azurecli
+# [true | false]
+azurecli_enabled: true
 
 # Install docker-ce
 # [true | false]
 docker_enabled: true
 
-# Install python3 suite (python3, pip)
-# [true | false]
-python3_enabled: true
-
 # Install Go
 # [true | false]
 go_enabled: true
-
-# Install git
-# [true | false]
-git_enabled: true
 
 # Install awscli
 # [true | false]
 awscli_enabled: true
 
-# Install IPython
-# [true | false]
-ipython_enabled: true
-
 # Install ansible
 # [true | false]
 ansible_enabled: true
-```
 
+# Install nodejs
+# [true | false]
+nodejs_enabled: true
+
+# Install java
+# [true | false]
+java_enabled: true
+
+# Install terraform
+# [true | false]
+terraform_enabled: true
+
+# Install packer
+# [true | false]
+packer_enabled: true
+
+# Install vagrant
+# [true | false]
+vagrant_enabled: true
+
+# Install docker-compose
+# [true | false]
+docker_compose_enabled: true
+
+# Install eksctl
+# [true | false]
+eksctl_enabled: true
+
+# Install helm
+# [true | false]
+helm_enabled: true
+
+# Install helm
+# [true | false]
+shellcheck_enabled: true
+
+
+```
