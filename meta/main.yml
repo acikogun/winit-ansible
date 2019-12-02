@@ -3,8 +3,23 @@ galaxy_info:
   role_name:
   author: Ogun Acik
   description: >-
-    Ansible role for tools I use on my development workstation including
-    go, docker, cloudsdk, awscli, ansible, IPython, git
+    An extensible installer for tools listed below.
+    ansible
+    awscli
+    azurecli
+    cloudsdk
+    docker
+    docker-compose
+    eksctl
+    go
+    helm
+    java8
+    java11
+    node
+    packer
+    terraform
+    vagrant
+
   company: acikogun
 
   license: Apache License, Version 2.0
@@ -27,13 +42,22 @@ galaxy_info:
 
   galaxy_tags:
     - docker
-    - awscli
+    - docker-compose
     - cloudsdk
-    - python3
-    - ipython
+    - kubectl
+    - helm
+    - eksctl
+    - azurecli
+    - awscli
+    - java8
+    - java11
     - go
     - ansible
-    - git
+    - nodejs
+    - terraform
+    - packer
+    - vagrant
+    - python3
     - workspace
     - development
 
