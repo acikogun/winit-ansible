@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.com/acikogun/wsprov-ansible-role.svg?branch=master)](https://travis-ci.com/acikogun/wsprov-ansible-role)
+[![Build Status](https://travis-ci.com/acikogun/winit-ansible-role.svg?branch=master)](https://travis-ci.com/acikogun/winit-ansible-role)
 
-wsprov-ansible-role
+winit-ansible-role
 =========
-Ansible role for [wsprov](https://github.com/acikogun/wsprov) that is a collection of installer bash scripts for tools I use on my development workstation.
+Ansible role for [winit](https://github.com/acikogun/winit) that is a collection of installer bash scripts for tools I use on my development workstation.
 
 
   - [Available tools](#available-tools)
@@ -50,7 +50,7 @@ Fedora:
 Install
 --------------
 ```
-ansible-galaxy install acikogun.wsprov_ansible_role
+ansible-galaxy install acikogun.winit_ansible_role
 ```
 
 Example Playbook
@@ -59,7 +59,7 @@ Example Playbook
 ---
 - hosts: minimal
   roles:
-    - acikogun.wsprov_ansible_role
+    - acikogun.winit_ansible_role
 
 ```
 
