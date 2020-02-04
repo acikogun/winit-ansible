@@ -34,6 +34,7 @@ Note: Only linux/amd64 is supported.
 CentOS:
   versions:
     - 7
+    - 8
 Debian:
   versions:
     - stretch
@@ -42,9 +43,6 @@ Ubuntu:
   versions:
     - xenial
     - bionic
-Fedora:
-  versions:
-    - 30
 ```
 
 Install
@@ -57,7 +55,7 @@ Example Playbook
 --------------
 ```
 ---
-- hosts: minimal
+- hosts: local
   roles:
     - acikogun.winit_ansible_role
 
