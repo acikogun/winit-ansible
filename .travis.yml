@@ -6,7 +6,7 @@ services:
 before_install:
   - sudo apt-get -qq update
 install:
-  - pip install molecule[docker]
+  - pip install molecule[docker]==2.22
 script:
   - molecule test --all
 notifications:
