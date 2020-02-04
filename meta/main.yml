@@ -4,7 +4,7 @@ galaxy_info:
   author: Ogun Acik
   description: >-
     Ansible role for tools I use on my development workstation including
-     go, docker, cloudsdk, awscli, ansible, IPython, git
+    go, docker, cloudsdk, awscli, ansible, IPython, git
   company: acikogun
 
   license: Apache License, Version 2.0
@@ -20,12 +20,10 @@ galaxy_info:
       versions:
         - xenial
         - bionic
-    - name: EL
+    - name: RHEL/CentOS
       versions:
         - 7
-    - name: Fedora
-      versions:
-        - 30
+        - 8
 
   galaxy_tags:
     - docker

@@ -8,8 +8,8 @@ lint:
 platforms:
   - name: centos-7
     image: centos:7
-  - name: fedora-30
-    image: fedora:30
+  - name: centos-8
+    image: centos:8
   - name: debian-stretch
     image: debian:stretch
   - name: debian-buster
@@ -22,10 +22,6 @@ provisioner:
   name: ansible
   lint:
     name: ansible-lint
-  inventory:
-    host_vars:
-      fedora-30:
-        ansible_python_interpreter: "/usr/bin/python3"
 verifier:
   name: testinfra
   lint:

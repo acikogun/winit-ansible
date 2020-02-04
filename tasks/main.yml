@@ -9,10 +9,6 @@
   when:
     - ansible_distribution | lower == "centos"
 
-- import_tasks: python/fedora.yml
-  when:
-    - ansible_distribution | lower == "fedora"
-
 - import_tasks: python/common.yml
 
 # awscli
@@ -54,6 +50,3 @@
   when:
     - ansible_distribution | lower == "centos"
 
-- import_tasks: docker/fedora.yml
-  when:
-    - ansible_distribution | lower == "fedora"

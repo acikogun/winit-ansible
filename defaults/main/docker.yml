@@ -43,12 +43,3 @@ docker:
       - bash-completion
     install_list:
       - docker-ce
-  fedora:
-    repo_url: https://download.docker.com/linux/fedora/docker-ce.repo
-    repo_dest: /etc/yum.repos.d/docker-ce.repo
-    requirements:
-      - bash-completion
-    install_list:
-      - docker-ce
-      - docker-ce-cli
-      - containerd.io
