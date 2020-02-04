@@ -19,4 +19,3 @@ python:
     install_list:
       - python36
       - python36-pip
-

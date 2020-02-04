@@ -49,4 +49,3 @@
 - import_tasks: docker/centos.yml
   when:
     - ansible_distribution | lower == "centos"
-
