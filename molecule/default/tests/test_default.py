@@ -131,7 +131,8 @@ def test_eksctl_installed(host):
 def test_helm_installed(host):
     helm = """/usr/bin/helm version"""
     cmd = host.run(helm)
-    assert 'version.BuildInfo' in cmd.stdout
+    assert 'Version' in cmd.stdout
+    assert 'GoVersion' in cmd.stdout
 
 
 def test_shellcheck_installed(host):

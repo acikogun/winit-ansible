@@ -6,10 +6,16 @@
     return_content: true
   register: helm_releases
 
-- name: Find the latest version of Helm
+- name: Check the latest available version of Helm
+  shell: |
+    set -o pipefail
+    curl -sSL {{ helm.api_url }} | jq -r .[].tag_name | grep ^v3 | head -1
+  register: helm_remote_version
+  changed_when: false
+
+- name: Set fact variable for the latest version of Helm
   set_fact:
-    helm_remote_version: "{{ ( helm_releases.content |\
-      from_json).tag_name }}"
+    helm_latest_version: "{{ helm_remote_version.stdout }}"
 
 - name: Check if the latest version of Helm installed already
   command: "{{ helm.install }}/helm version"
@@ -20,13 +26,13 @@
 
 - name: Install Helm
   unarchive:
-    src: "{{ helm.base_url }}/{{ helm.file_prefix }}{{ helm_remote_version }}\
+    src: "{{ helm.base_url }}/{{ helm.file_prefix }}{{ helm_latest_version }}\
       {{ helm.file_suffix }}"
     dest: "{{ helm.install }}"
     remote_src: true
     extra_opts: [--strip-components=1]
   when: >-
-    helm_remote_version not in helm_local_version.stdout |
+    helm_latest_version not in helm_local_version.stdout |
     default('notinstalled')
 
 - name: Enable Helm bash completion
