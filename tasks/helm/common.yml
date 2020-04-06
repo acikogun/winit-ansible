@@ -1,16 +1,15 @@
 ---
 
 - name: Get Helm releases
-  uri:
+  get_url:
     url: "{{ helm.api_url }}"
-    return_content: true
-  register: helm_releases
+    dest: "{{ helm.releases }}"
 
 - name: Check the latest available version of Helm
   shell: |
-    set -o pipefail
-    curl -sSL {{ helm.api_url }} | jq -r .[].tag_name | grep ^v3 | head -1
+    cat {{ helm.releases | quote }} | jq -r .[].tag_name | grep ^v3 | head -1
   register: helm_remote_version
+  ignore_errors: true
   changed_when: false
 
 - name: Set fact variable for the latest version of Helm
@@ -40,3 +39,8 @@
     create: true
     line: "source <(helm completion bash)"
     dest: '{{ helm.bash_comp_dest }}'
+
+- name: Delete Helm releases file
+  file:
+    path: "{{ helm.releases }}"
+    state: absent
