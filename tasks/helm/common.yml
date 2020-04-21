@@ -7,7 +7,8 @@
 
 - name: Check the latest available version of Helm
   shell: |
-    cat {{ helm.releases | quote }} | jq -r .[].tag_name | grep ^v3 | head -1
+    cat {{ helm.releases | quote }} | jq -r .[].tag_name |\
+    grep ^v3 | grep -v rc | head -1
   register: helm_remote_version
   ignore_errors: true
   changed_when: false
