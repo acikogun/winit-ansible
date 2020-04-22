@@ -2,6 +2,8 @@
 # Default settings for requirements
 
 requirements:
+  virtualenvwrapper:
+    venvwrapper_config_dest: /etc/profile.d/venvwrapper.sh
   pip_config:
     bash_comp_dest: /etc/profile.d/pip_bash.sh
   deb_config:

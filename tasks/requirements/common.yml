@@ -7,10 +7,11 @@
         executable: pip3
         extra_args: --upgrade
 
-    - name: Install virtualenv and IPython
+    - name: Install virtualenv and virtualenvwrapper and IPython
       pip:
         name:
           - virtualenv
+          - virtualenvwrapper
           - ipython
         executable: pip3
         extra_args: --upgrade
@@ -20,3 +21,8 @@
         create: true
         line: "source <(pip completion --bash)"
         dest: '{{ requirements.pip_config.bash_comp_dest }}'
+
+    - name: Copy virtualenvwrapper config file
+      copy:
+        src: venvwrapper.sh
+        dest: '{{ requirements.virtualenvwrapper.venvwrapper_config_dest }}'
