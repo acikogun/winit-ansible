@@ -4,5 +4,5 @@
 shellcheck:
   api_url: https://api.github.com/repos/koalaman/shellcheck/releases/latest
   install: /usr/bin
-  base_url: https://storage.googleapis.com/shellcheck
+  base_url: https://github.com/koalaman/shellcheck/releases/download/stable
   download_file: shellcheck-stable.linux.x86_64.tar.xz
