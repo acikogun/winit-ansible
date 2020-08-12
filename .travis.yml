@@ -3,6 +3,10 @@ sudo: required
 language: python
 services:
   - docker
+addons:
+  apt:
+    packages:
+      - docker-ce
 before_install:
   - sudo apt-get -qq update
 install:
