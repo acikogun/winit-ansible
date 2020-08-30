@@ -1,4 +1,4 @@
 ---
 - hosts: local
   roles:
-    - acikogun.winit_ansible_role
+    - acikogun.winit

@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.com/acikogun/winit-ansible-role.svg?branch=master)](https://travis-ci.com/acikogun/winit-ansible-role)
+[![Build Status](https://travis-ci.com/acikogun/winit-ansible.svg?branch=master)](https://travis-ci.com/acikogun/winit-ansible)
 
-winit-ansible-role
+winit-ansible
 =========
 Ansible role for [winit](https://github.com/acikogun/winit) that is a collection of installer bash scripts for tools I use on my development workstation.
 
@@ -73,7 +73,7 @@ Install
 --------------
 
 ```bash
-ansible-galaxy install acikogun.winit_ansible_role
+ansible-galaxy install acikogun.winit
 ```
 
 Example Playbook
@@ -83,7 +83,7 @@ Example Playbook
 ---
 - hosts: local
   roles:
-    - acikogun.winit_ansible_role
+    - acikogun.winit
 
 ```
 

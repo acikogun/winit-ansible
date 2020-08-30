@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  role_name:
+  role_name: winit
   author: Ogun Acik
   description: >-
     An extensible installer for tools listed below.
