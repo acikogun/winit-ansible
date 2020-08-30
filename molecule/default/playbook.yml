@@ -1,5 +1,7 @@
 ---
 - name: Converge
   hosts: all
-  roles:
-    - role: acikogun.winit
+  tasks:
+    - name: "Include winit role"
+      include_role:
+        name: "winit"
