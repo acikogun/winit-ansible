@@ -32,6 +32,8 @@ platforms:
     image: ubuntu:xenial
   - name: ubuntu-bionic
     image: ubuntu:bionic
+  - name: ubuntu-focal
+    image: ubuntu:focal
 provisioner:
   name: ansible
   lint:

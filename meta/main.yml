@@ -35,6 +35,7 @@ galaxy_info:
       versions:
         - xenial
         - bionic
+        - focal
     - name: RHEL/CentOS
       versions:
         - 7
