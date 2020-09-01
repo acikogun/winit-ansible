@@ -4,3 +4,4 @@
     create: true
     line: "source <(kubectl completion bash)"
     dest: '{{ cloudsdk.kubectl_bash_comp_dest }}'
+    mode: 0644

@@ -23,6 +23,7 @@
     src: "{{ eksctl.base_url }}/{{ eksctl.download_file_name }}"
     dest: "{{ eksctl.install }}"
     remote_src: true
+    mode: 0755
   when: >-
     eksctl_remote_version not in eksctl_local_version.stdout |
     default('notinstalled')
@@ -32,3 +33,4 @@
     create: true
     line: "source <(eksctl completion bash)"
     dest: '{{ eksctl.bash_comp_dest }}'
+    mode: 0644

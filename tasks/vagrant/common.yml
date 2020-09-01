@@ -25,6 +25,7 @@
       {{ vagrant.file_suffix }}"
     dest: "{{ vagrant.install }}"
     remote_src: true
+    mode: 0755
   when: >-
     vagrant_remote_version not in vagrant_local_version.stdout |
     default('notinstalled')

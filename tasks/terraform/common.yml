@@ -25,6 +25,7 @@
       {{ terraform.file_suffix }}"
     dest: "{{ terraform.install }}"
     remote_src: true
+    mode: 0755
   when: >-
     terraform_remote_version not in terraform_local_version.stdout |
     default('notinstalled')

@@ -25,6 +25,7 @@
       {{ packer.file_suffix }}"
     dest: "{{ packer.install }}"
     remote_src: true
+    mode: 0755
   when: >-
     packer_remote_version not in packer_local_version.stdout |
     default('notinstalled')

@@ -12,3 +12,4 @@
         create: true
         line: "complete -C 'aws_completer' aws"
         dest: "/etc/profile.d/awscli_bash.sh"
+        mode: 0644

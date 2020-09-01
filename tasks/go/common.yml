@@ -19,6 +19,7 @@
         src: "{{ go.base_url }}/{{ go_rmt_ver.content }}{{ go.file_suffix }}"
         dest: "{{ go.install }}"
         remote_src: true
+        mode: 0755
 
     - name: Create a symbolic links for Go binaries
       file:

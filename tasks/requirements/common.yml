@@ -21,8 +21,10 @@
         create: true
         line: "source <(pip completion --bash)"
         dest: '{{ requirements.pip_config.bash_comp_dest }}'
+        mode: 0644
 
     - name: Copy virtualenvwrapper config file
       copy:
         src: venvwrapper.sh
         dest: '{{ requirements.virtualenvwrapper.venvwrapper_config_dest }}'
+        mode: 0644
