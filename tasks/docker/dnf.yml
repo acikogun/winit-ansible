@@ -6,12 +6,5 @@
         url: "{{ docker.centos.repo_url }}"
         dest: "{{ docker.centos.repo_dest }}"
 
-    - name: (CentOS/8) Install containerd.io
-      dnf:
-        name: "{{ docker.centos.base_url }}/{{ docker.centos.containerd_rpm }}"
-        state: present
-
     - name: (CentOS/8) Install docker-ce
-      dnf:
-        name: docker-ce
-        state: present
+      command: dnf install docker-ce --nobest -y
