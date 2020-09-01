@@ -67,6 +67,7 @@ Ubuntu:
   versions:
     - 16 (xenial
     - 18 (bionic)
+    - 20 (focal fossa)
 ```
 
 Install
@@ -76,18 +77,19 @@ Install
 ansible-galaxy install acikogun.winit
 ```
 
-Example Playbook
+An example playbook for local installations
 --------------
 
 ```yaml
 ---
-- hosts: local
+- hosts: 127.0.0.1
+  connection: local
   roles:
     - acikogun.winit
 
 ```
 
-Role Variables
+Variables to set tools to install/uninstall (vars/main.yml)
 --------------
 
 ```yaml
@@ -150,6 +152,5 @@ helm_enabled: true
 # Install helm
 # [true | false]
 shellcheck_enabled: true
-
 
 ```
