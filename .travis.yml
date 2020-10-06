@@ -4,7 +4,7 @@ language: python
 services:
   - docker
 install:
-  - pip install molecule[docker]==2.22
+  - pip install -r requirements.txt
 before_script:
   - cd ../
   - mv winit-ansible winit

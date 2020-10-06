@@ -1,0 +1,2 @@
+ansible==2.9.14
+molecule[docker]==2.22
