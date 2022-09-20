@@ -17,8 +17,7 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint:
-  name: yamllint
+lint: yamllint
 platforms:
   - name: centos-7
     image: centos:7
@@ -36,13 +35,11 @@ platforms:
     image: ubuntu:focal
 provisioner:
   name: ansible
-  lint:
-    name: ansible-lint
+  lint: ansible-lint
   inventory:
     host_vars:
       centos-8:
         ansible_python_interpreter: "/usr/bin/python3"
 verifier:
   name: testinfra
-  lint:
-    name: flake8
+  lint: flake8
